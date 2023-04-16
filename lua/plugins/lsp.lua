@@ -1,13 +1,16 @@
 return {
     {
         'neovim/nvim-lspconfig',
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
-            "mason.nvim",
-            "nvim-cmp",
-            "williamboman/mason-lspconfig.nvim",
+            'nvim-cmp',
+            'nvim-treesitter',
+            'Maan2003/lsp_lines.nvim',
+            { 'williamboman/mason.nvim', build = ':MasonUpdate' },
+            'williamboman/mason-lspconfig',
         },
-        opts = {
-            diagnostics = {
+        config = function()
+            vim.lsp.diagnostics = {
                 virtual_text = false,
                 virtual_lines = true,
                 signs = false,
@@ -15,55 +18,34 @@ return {
                 update_in_insert = false,
                 severity_sort = true,
             }
-        },
-        setup = {}
-    },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        opts = {
-            ensure_installed = { 
-                "c",
-                "bash",
-                "comment",
-                "html", 
-                "json",
-                "markdown",
-                "rust", 
-                "regex",
-                "ruby"
-            },
-            sync_install = true,
-            auto_install = true,
-            highlight = { enable = true, additional_vim_regex_highlighting = true, },
-            indent = { enable = false },
-        }
-    },
+            local lspconfig = require('lspconfig')
+            require('mason').setup()
 
-    {
-        "williamboman/mason.nvim",
-        cmd = "Mason",
-        opts = {
-            ensure_installed = {
-                "stylua",
-                "shfmt",
-            },
-        },
+            require('mason-lspconfig').setup({
+                automatic_installation = true,
+                ensure_installed = {}
+            })
+
+            require('mason-lspconfig').setup_handlers({
+                function (server_name)
+                    lspconfig[server_name].setup({})
+                end
+            })
+        end
     },
 
     {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        dependencies = { "mason.nvim" },
-        opts = function()
-        local nls = require("null-ls")
-        return {
-            root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-            sources = {
-            nls.builtins.formatting.stylua,
-            nls.builtins.formatting.shfmt,
-            },
-        }
-        end
+        dependencies = { 
+            "mason.nvim",
+            "nvim-lua/plenary.nvim",
+            {
+                "jay-babu/mason-null-ls.nvim",
+                opts = { automatic_setup = true }
+            }
+        },
     },
+
 }

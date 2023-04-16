@@ -32,7 +32,6 @@ vim.o.cdhome = true
 
 vim.o.wrapscan = true
 vim.o.wildmenu = true
--- vim.o.wildignore = { '*.docx','*.jpg','*.png','*.pdf','*.pyc','*.exe','*.flv','*.img','*.xlsx' }
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -58,8 +57,6 @@ vim.o.autoread = true
 vim.o.foldenable = true
 vim.o.foldlevelstart = 5
 vim.o.foldmethod = 'indent'
--- vim.o.foldmarker = { '-v-','-^-' }
--- vim.o.backspace = { 'indent','eol','start' }
 
 vim.o.ttimeout = true
 vim.o.ttimeoutlen = 1
@@ -70,10 +67,6 @@ vim.o.splitbelow = true
 
 vim.o.showtabline = 0
 vim.o.termguicolors = true
--- vim.o.completeopt = { 'menu', 'menuone', 'noselect' }
-
-vim.o.pumblend = 30
-vim.o.pumwidth = 50
 
 vim.o.jumpoptions = 'stack'
 vim.o.so = 10
