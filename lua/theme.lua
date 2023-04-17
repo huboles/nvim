@@ -218,7 +218,7 @@ highlight("lualine_c_insert", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_a_terminal", black, pink, c_black, c_pink, nil, nil)
 highlight("lualine_b_terminal", pink, black, c_pink, c_black, nil, nil)
 highlight("lualine_c_terminal", grey, black, c_grey, c_black, nil, nil)
-highlight("lualine_a_inactive", black, grey, c_black, c_grey, nil, nil)
+highlight("lualine_a_inactive", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_b_inactive", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_inactive", grey, black, c_grey, c_black, nil, nil)
 

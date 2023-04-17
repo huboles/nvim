@@ -4,15 +4,6 @@ vim.keymap.set( 'n', '<leader>v', ":split " )
 vim.keymap.set( 'n', '<leader>t', ':tabnew ' )
 vim.keymap.set( 'n', '<leader>B', '<CMD>bnext<CR>' )
 
--- fzf bindings
-vim.keymap.set( 'n', '<leader>H', "<CMD>call fzf#run({ 'sink': 'vertical botright split' })<CR>" )
-vim.keymap.set( 'n', '<leader>V', "<CMD>call fzf#run({ 'sink': 'botright split' })<CR>" )
-vim.keymap.set( 'n', '<leader>T', "<CMD>call fzf#run({ 'sink': 'tabnew' })<CR>" )
-vim.keymap.set( 'n', '<leader>f', '<CMD>GFiles<CR>' )
-vim.keymap.set( 'n', '<leader>F', '<CMD>Files<CR>' )
-vim.keymap.set( 'n', '<leader>b', '<CMD>Buffers<CR>' )
-vim.keymap.set( 'n', '<leader>r', '<CMD>History:<CR>' )
-
 -- move through virtual lines
 vim.keymap.set( 'n', 'j', 'gj'  )
 vim.keymap.set( 'n', 'k', 'gk'  )
@@ -36,23 +27,10 @@ vim.keymap.set( 'n', 'K', 'Jx'  )
 
 -- toggle ui elements
 vim.keymap.set( 'n', '_', '<CMD>nohlsearch<CR>'  )
-vim.keymap.set( 'n', '<leader>u', '<CMD>UndotreeToggle<CR>' )
-vim.keymap.set( 'n', '<leader><Space>', '<CMD>ToggleTerm<CR>'  )
 
--- editing and reloading init.lua
+-- quick plugin editing
 vim.keymap.set( 'n', '<leader>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>' )
-vim.keymap.set( 'n', '<leader>q', 
-function()
-    vim.cmd('write')
-    vim.cmd('source ~/.config/nvim/init.lua')
-end )
-
-vim.keymap.set( 'n', '<leader>Q', 
-function()
-    vim.cmd('write')
-    vim.cmd('source ~/.config/nvim/init.lua')
-    vim.cmd('PlugUpdate')
-end )
+vim.keymap.set( 'n', '<leader>q', '<CMD>Lazy<CR>' )
 
 -- autosave
 vim.keymap.set( 'i', '<ESC>', '<ESC><CMD>update<CR>'  )
@@ -64,7 +42,5 @@ vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 -- lsp diagnostic navigation
 vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>p', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<leader>l', vim.diagnostic.open_float, opts)
--- vim.keymap.set('n', "<Leader>L", require("lsp_lines").toggle)
 vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover)
