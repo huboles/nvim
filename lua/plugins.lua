@@ -11,7 +11,7 @@ return {
     { 'tpope/vim-endwise', lazy = false },
     { 'tpope/vim-commentary', lazy = false },
 
-    { 
+    {
         'junegunn/fzf.vim', 
         dependencies = {'junegunn/fzf'},
         lazy = false
