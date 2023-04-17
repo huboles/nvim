@@ -106,6 +106,8 @@ highlight("StatusLine", white, black, c_grey, c_white, bold, nil)
 highlight("SignColumn", blue, black, c_blue, c_black, nil, nil)
 highlight("ColorColumn", black, dark_yellow, c_black, c_dark_yellow, nil, nil)
 highlight("Directory", blue, nil, c_blue, nil, bold, nil)
+highlight("Conceal", grey, black, c_grey, c_black, nil, nil)
+highlight("CursorLine", white, grey, c_white, c_grey, nil, nil)
 
 -- Spelling
 highlight("SpellBad", red, black, c_red, c_black, underline, red)
@@ -199,6 +201,11 @@ highlight("RedrawDebugClear", black, dark_yellow, c_black, c_dark_yellow, nil, n
 highlight("RedrawDebugComposed", black, green, c_black, c_green, nil, nil)
 highlight("RedrawDebugRecompose", black, red, c_black, c_red, nil, nil)
 
+-- Lazy.nvim
+highlight("LazyButton", white, black, c_white, c_black, nil, nil)
+highlight("LazyButtonActive", white, black, c_white, c_black, bold, nil)
+highlight("LazyH1", white, black, c_white, c_black, bold, nil)
+
 -- Lualine
 highlight("lualine_a_visual", black, yellow, c_black, c_yellow, nil, nil)
 highlight("lualine_b_visual", yellow, black, c_yellow, c_black, nil, nil)
@@ -223,7 +230,7 @@ highlight("lualine_b_inactive", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_inactive", grey, black, c_grey, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_normal", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_normal", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_normal", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_normal", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_normal", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_normal", green, black, c_green, c_black, nil, nil)
@@ -231,7 +238,7 @@ highlight("lualine_c_diff_modified_normal", yellow, black, c_yellow, c_black, ni
 highlight("lualine_c_diff_removed_normal", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_insert", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_insert", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_insert", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_insert", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_insert", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_insert", green, black, c_green, c_black, nil, nil)
@@ -239,7 +246,7 @@ highlight("lualine_c_diff_modified_insert", yellow, black, c_yellow, c_black, ni
 highlight("lualine_c_diff_removed_insert", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_visual", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_visual", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_visual", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_visual", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_visual", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_visual", green, black, c_green, c_black, nil, nil)
@@ -247,7 +254,7 @@ highlight("lualine_c_diff_modified_visual", yellow, black, c_yellow, c_black, ni
 highlight("lualine_c_diff_removed_visual", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_replace", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_replace", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_replace", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_replace", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_replace", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_replace", green, black, c_green, c_black, nil, nil)
@@ -255,7 +262,7 @@ highlight("lualine_c_diff_modified_replace", yellow, black, c_yellow, c_black, n
 highlight("lualine_c_diff_removed_replace", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_command", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_command", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_command", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_command", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_command", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_command", green, black, c_green, c_black, nil, nil)
@@ -263,7 +270,7 @@ highlight("lualine_c_diff_modified_command", yellow, black, c_yellow, c_black, n
 highlight("lualine_c_diff_removed_command", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_terminal", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_terminal", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_terminal", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_terminal", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_terminal", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_terminal", green, black, c_green, c_black, nil, nil)
@@ -271,7 +278,7 @@ highlight("lualine_c_diff_modified_terminal", yellow, black, c_yellow, c_black, 
 highlight("lualine_c_diff_removed_terminal", blue, black, c_blue, c_black, nil, nil)
 
 highlight("lualine_y_diagnostics_error_inactive", red, black, c_red, c_black, nil, nil)
-highlight("lualine_y_diagnostics_warning_inactive", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
+highlight("lualine_y_diagnostics_warn_inactive", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("lualine_y_diagnostics_info_inactive", blue, black, c_blue, c_black, nil, nil)
 highlight("lualine_y_diagnostics_hint_inactive", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_c_diff_added_inactive", green, black, c_green, c_black, nil, nil)

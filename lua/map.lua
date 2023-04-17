@@ -42,5 +42,7 @@ vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 -- lsp diagnostic navigation
 vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>p', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.hide, opts)
+vim.keymap.set('n', '<leader>D', vim.diagnostic.show, opts)
 vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover)
