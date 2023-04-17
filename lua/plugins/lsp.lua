@@ -34,18 +34,4 @@ return {
             })
         end
     },
-
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            "mason.nvim",
-            "nvim-lua/plenary.nvim",
-            {
-                "jay-babu/mason-null-ls.nvim",
-                opts = { automatic_setup = true }
-            }
-        },
-    },
-
 }
