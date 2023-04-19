@@ -42,7 +42,7 @@ vim.o.expandtab = true
 vim.o.shiftround = true
 
 vim.o.showcmd = true
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 vim.o.cmdwinheight = 10
 
 vim.o.backupdir = '/home/huck/.local/state/nvim/backup'

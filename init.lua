@@ -35,4 +35,5 @@ require("lazy").setup("plugins", {
 
 require('settings')
 require('map')
+require('functions')
 require('theme')

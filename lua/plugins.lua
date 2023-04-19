@@ -24,17 +24,10 @@ return {
     -- },
 
     {
-        'junegunn/fzf',
-        keys = {
-            { '<leader>H', "<CMD>call fzf#run({ 'sink': 'vertical botright split', 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true} })<CR>" },
-            { '<leader>V', "<CMD>call fzf#run({ 'sink': 'botright split', 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true}  })<CR>" },
-            {'<leader>T', "<CMD>call fzf#run({ 'sink': 'tabnew', 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true} })<CR>"},
-        },
-    },
-
-    {
         'junegunn/fzf.vim',
-        dependencies = {'fzf'},
+        dependencies = {
+            'junegunn/fzf'
+        },
         keys = {
             { '<leader>f', '<CMD>GFiles<CR>' },
             { '<leader>F', '<CMD>Files<CR>' },
