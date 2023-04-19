@@ -14,6 +14,7 @@ vim.o.mousemodel= 'extend'
 vim.o.lazyredraw = true
 
 vim.o.number = false 
+vim.o.signcolumn = 'yes'
 
 vim.o.linebreak = true
 vim.o.breakindent = true

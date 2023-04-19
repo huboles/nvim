@@ -9,7 +9,10 @@ local purple       = "#9b64fb"
 local pink         = "#6d878d"
 local white        = "#d7d0c7"
 
+local dark_grey    = "#333333"
 local grey         = "#888888"
+local light_grey   = "#aaaaaa"
+
 local dark_red     = "#d23d3d"
 local dark_green   = "#a0cf5d"
 local dark_yellow  = "#f39d21"
@@ -78,26 +81,26 @@ highlight("Underline", nil, nil, nil, nil, underline, nil)
 
 -- Editor
 highlight("Normal", white, black, c_white, nil, nil, nil)
-highlight("EndOfBuffer", white, black, c_white, nil, nil, nil)
+highlight("EndOfBuffer", black, black, c_black, c_black, nil, nil)
 highlight("LineNr", yellow, black, c_yellow, c_black, nil, nil)
 highlight("CursorLineNr", red, black, c_red, c_black, bold, nil)
 highlight("MatchParen", nil, grey, nil, c_grey, bold, nil)
 highlight("SpecialKey", pink, nil, c_pink, nil, nil, nil)
 highlight("NonText", pink, black, c_pink, c_black, nil, nil)
 highlight("Search", nil, green, nil, c_green, nil, nil)
-highlight("Visual", nil, grey, nil, c_grey, nil, nil)
-highlight("Folded", blue, grey, c_blue, c_grey, nil, nil)
-highlight("FoldColumn", blue, grey, c_blue, c_grey, nil, nil)
+highlight("Visual", nil, dark_grey, nil, c_grey, nil, nil)
+highlight("Folded", blue, dark_grey, c_blue, c_grey, nil, nil)
+highlight("FoldColumn", blue, dark_grey, c_blue, c_grey, nil, nil)
 
 -- UI
 highlight("WildMenu", grey, black, c_grey, c_black, nil, nil)
 highlight("Title", green, black, c_green, c_black, bold, nil)
-highlight("ToolBarLine", black, grey, c_black, c_grey, nil, nil)
+highlight("ToolBarLine", black, dark_grey, c_black, c_grey, nil, nil)
 highlight("Pmenu", white, black, nil, c_black, nil, nil)
 highlight("PmenuSbar", white, black, nil, c_black, nil, nil)
 highlight("PmenuThumb", grey, black, nil, c_black, nil, nil)
 highlight("PmenuSel", green, black, c_green, c_black, nil, nil)
-highlight("VertSplit", grey, black, c_grey, nil, nil)
+highlight("VertSplit", dark_grey, black, c_grey, nil, nil)
 highlight("TabLine", black, grey, c_black, c_grey, nil, nil)
 highlight("TabLineFill", grey, black, c_grey, c_black, nil, nil)
 highlight("TablineSel", grey, black, c_grey, c_white, bold, nil)
@@ -147,9 +150,9 @@ highlight("CmpItemKindProperty", dark_yellow, "NONE", c_dark_yellow, "NONE", nil
 highlight("CmpItemKindUnit", dark_yellow, "NONE", c_dark_yellow, "NONE", nil, nil)
 
 -- Indent lines
-highlight("IndentBlanklineChar", grey, nil, c_grey, nil, nil, nil)
-highlight("IndentBlanklineSpaceChar", grey, nil, c_grey, nil, nil, nil)
-highlight("IndentBlanklineSpaceCharBlankline", grey, nil, c_grey, nil, nil, nil)
+highlight("IndentBlanklineChar", dark_grey, nil, c_grey, nil, "NONE", nil)
+highlight("IndentBlanklineSpaceChar", dark_grey, nil, c_grey, nil, "NONE", nil)
+highlight("IndentBlanklineSpaceCharBlankline", dark_grey, nil, c_grey, nil, "NONE", nil)
 
 -- Syntax highlighting
 highlight("Comment", grey, black, c_grey, c_black, italic, nil)
