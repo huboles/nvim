@@ -24,6 +24,7 @@ vim.o.showbreak = '> '
 vim.o.ignorecase = true
 vim.o.infercase = true
 vim.o.smartcase = true
+
 vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.history = 10000
