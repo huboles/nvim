@@ -9,7 +9,8 @@ vim.g.netrw_liststyle = 4
 vim.g.visible_diagnostics = true
 
 vim.o.mousefocus = true
-vim.o.mousemodel= 'extend'
+vim.o.mousemodel = 'extend'
+vim.o.clipboard = 'unnamedplus,unnamed'
 
 vim.o.lazyredraw = true
 

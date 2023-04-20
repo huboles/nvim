@@ -13,7 +13,7 @@ return {
             vim.lsp.diagnostics = {
                 virtual_text = false,
                 virtual_lines = true,
-                signs = false,
+                signs = true,
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,

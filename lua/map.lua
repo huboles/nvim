@@ -44,7 +44,8 @@ vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next )
 vim.keymap.set('n', '<leader>p', vim.diagnostic.goto_prev )
 vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename )
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover )
-vim.keymap.set('n', '<leader>d', 
+vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float )
+vim.keymap.set('n', '<leader>d',
     function()
         if vim.g.visible_diagnostics then
             vim.diagnostic.disable()
