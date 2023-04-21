@@ -32,9 +32,6 @@ vim.keymap.set( 'n', '_', '<CMD>nohlsearch<CR>' )
 vim.keymap.set( 'n', '<leader>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>' )
 vim.keymap.set( 'n', '<leader>q', '<CMD>Lazy<CR>' )
 
--- autosave
-vim.keymap.set( 'i', '<ESC>', '<ESC><CMD>update<CR>' )
-
 -- better terminal movement keys
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]] )
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]] )

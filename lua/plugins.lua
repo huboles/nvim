@@ -2,7 +2,7 @@ return {
 
     {
         'mbbill/undotree',
-        keys = { { '<leader>u', '<CMD>UndotreeToggle<CR>', desc = 'Toggle undo tree sidebar' } }
+        keys = { { '<leader>u', '<CMD>UndotreeToggle<CR>'} }
     },
 
     { 'christoomey/vim-tmux-navigator', lazy = false },
@@ -16,25 +16,17 @@ return {
     { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
 
     -- {
-    --     'norcalli/nvim-colorizer.lua',
-    --     lazy = false,
-    --     config = function()
-    --         require('colorizer').setup()
-    --     end
+    --     'junegunn/fzf.vim',
+    --     dependencies = {
+    --         'junegunn/fzf'
+    --     },
+    --     keys = {
+    --         { '<leader>f', '<CMD>GFiles<CR>' },
+    --         { '<leader>F', '<CMD>Files<CR>' },
+    --         { '<leader>b', '<CMD>Buffers<CR>' },
+    --         { '<leader><C-r>', '<CMD>History:<CR>' },
+    --     },
     -- },
-
-    {
-        'junegunn/fzf.vim',
-        dependencies = {
-            'junegunn/fzf'
-        },
-        keys = {
-            { '<leader>f', '<CMD>GFiles<CR>' },
-            { '<leader>F', '<CMD>Files<CR>' },
-            { '<leader>b', '<CMD>Buffers<CR>' },
-            { '<leader><C-r>', '<CMD>History:<CR>' },
-        },
-    },
 
     {
         'akinsho/toggleterm.nvim',
