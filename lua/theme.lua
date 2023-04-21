@@ -170,7 +170,7 @@ highlight("Identifier", blue, black, c_blue, c_black, nil, nil)
 highlight("Conditional", dark_green, black, c_dark_green, c_black, "italic,bold", nil)
 highlight("Repeat", dark_green, black, c_dark_green, c_black, "italic,bold", nil)
 
-highlight("Label", green, black, c_green, c_black, nil, nil)
+highlight("Label", dark_green, black, c_dark_green, c_black, nil, nil)
 highlight("Statement", dark_green, black, c_dark_green, c_black, nil, nil)
 highlight("Operator", dark_green, black, c_dark_green, c_black, bold, nil)
 highlight("Keyword", dark_green, black, c_dark_green, c_black, bold, nil)
