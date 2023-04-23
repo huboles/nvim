@@ -15,19 +15,6 @@ return {
 
     { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
 
-    -- {
-    --     'junegunn/fzf.vim',
-    --     dependencies = {
-    --         'junegunn/fzf'
-    --     },
-    --     keys = {
-    --         { '<leader>f', '<CMD>GFiles<CR>' },
-    --         { '<leader>F', '<CMD>Files<CR>' },
-    --         { '<leader>b', '<CMD>Buffers<CR>' },
-    --         { '<leader><C-r>', '<CMD>History:<CR>' },
-    --     },
-    -- },
-
     {
         'akinsho/toggleterm.nvim',
         keys = { { '<leader><space>', '<CMD>ToggleTerm<CR>' } },
