@@ -10,15 +10,6 @@ return {
             'williamboman/mason-lspconfig',
         },
         config = function()
-            vim.lsp.diagnostics = {
-                virtual_text = false,
-                virtual_lines = true,
-                signs = true,
-                underline = true,
-                update_in_insert = false,
-                severity_sort = true,
-            }
-
             local lspconfig = require('lspconfig')
             require('mason').setup()
 
@@ -34,17 +25,30 @@ return {
             })
 
             local border = {
-                {"┌", "FloatBorder"},
-                {"─", "FloatBorder"},
-                {"┐", "FloatBorder"},
-                {"│", "FloatBorder"},
-                {"┘", "FloatBorder"},
-                {"─", "FloatBorder"},
-                {"└", "FloatBorder"},
-                {"│", "FloatBorder"},
+                {"┏", "FloatBorder"},
+                {"━", "FloatBorder"},
+                {"┓", "FloatBorder"},
+                {"┃", "FloatBorder"},
+                {"┛", "FloatBorder"},
+                {"━", "FloatBorder"},
+                {"┗", "FloatBorder"},
+                {"┃", "FloatBorder"},
             }
 
-            -- To instead override globally
+            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
+
+            vim.lsp.diagnostics = {
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = { reverse = true },
+            }
+
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
+
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}

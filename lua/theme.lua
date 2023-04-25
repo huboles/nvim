@@ -95,7 +95,7 @@ highlight("FoldColumn", blue, dark_grey, c_blue, c_grey, nil, nil)
 -- UI
 highlight("WildMenu", grey, black, c_grey, c_black, nil, nil)
 highlight("Title", green, black, c_green, c_black, bold, nil)
-highlight("ToolBarLine", black, dark_grey, c_black, c_grey, nil, nil)
+highlight("ToolBarLine", dark_grey, black, c_grey, c_black, nil, nil)
 highlight("Pmenu", white, black, nil, c_black, nil, nil)
 highlight("PmenuSbar", white, black, nil, c_black, nil, nil)
 highlight("PmenuThumb", grey, black, nil, c_black, nil, nil)

@@ -27,11 +27,12 @@ return {
     {
         'folke/trouble.nvim',
         keys = {
-            { '<leader>l', '<CMD>TroubleToggle<CR>' },
+            { '<leader>l', '<CMD>TroubleToggle document_diagnostics<CR>' },
+            { '<leader>L', '<CMD>TroubleToggle workspace_diagnostics<CR>' },
+            { '<leader>r', '<CMD>TroubleToggle lsp_references<CR>' },
         },
         opts = {
             icons = false,
-            mode = 'workspace_diagnostics',
             use_diagnostic_signs = true
         }
     }

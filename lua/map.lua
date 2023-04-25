@@ -2,7 +2,7 @@
 vim.keymap.set( 'n', '<leader>h', ":vsplit " )
 vim.keymap.set( 'n', '<leader>v', ":split " )
 vim.keymap.set( 'n', '<leader>t', ':tabnew ' )
-vim.keymap.set( 'n', '<leader>b', '<CMD>bnext<CR>' )
+vim.keymap.set( 'n', '<leader>b', '<CMD>bprev<CR>' )
 
 -- move through virtual lines
 vim.keymap.set( 'n', 'j', 'gj' )
@@ -51,5 +51,5 @@ vim.keymap.set('n', '<leader>d',
             vim.diagnostic.enable()
             vim.g.visible_diagnostics = true
         end
-    end,
-opts)
+    end
+)
