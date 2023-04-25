@@ -16,8 +16,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
         local copy = function(name)
             local path = dir .. name .. ext
-            print(path)
-            print(ext)
             if vim.fn.filereadable(path) == 1 then
                 vim.cmd('0r ' .. path)
             end
