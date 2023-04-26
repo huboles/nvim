@@ -19,20 +19,20 @@ return {
             })
 
             require('mason-lspconfig').setup_handlers({
-                function (server_name)
+                function(server_name)
                     lspconfig[server_name].setup({})
                 end
             })
 
             local border = {
-                {"┏", "FloatBorder"},
-                {"━", "FloatBorder"},
-                {"┓", "FloatBorder"},
-                {"┃", "FloatBorder"},
-                {"┛", "FloatBorder"},
-                {"━", "FloatBorder"},
-                {"┗", "FloatBorder"},
-                {"┃", "FloatBorder"},
+                { "┏", "FloatBorder" },
+                { "━", "FloatBorder" },
+                { "┓", "FloatBorder" },
+                { "┃", "FloatBorder" },
+                { "┛", "FloatBorder" },
+                { "━", "FloatBorder" },
+                { "┗", "FloatBorder" },
+                { "┃", "FloatBorder" },
             }
 
             local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
@@ -57,4 +57,22 @@ return {
             end
         end
     },
+
+    {
+        'jay-babu/mason-null-ls.nvim',
+        event = { 'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            'mason.nvim',
+            {
+                'jose-elias-alvarez/null-ls.nvim',
+                dependencies = { 'plenary.nvim' },
+            }
+        },
+        config = function()
+            require('mason-null-ls').setup({
+                automatic_setup = true,
+            })
+        end
+    },
+
 }

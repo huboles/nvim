@@ -2,17 +2,16 @@ return {
 
     {
         'mbbill/undotree',
-        keys = { { '<leader>u', '<CMD>UndotreeToggle<CR>'} }
+        keys = { { '<leader>u', '<CMD>UndotreeToggle<CR>' } }
     },
 
-    { 'christoomey/vim-tmux-navigator', lazy = false },
+    { 'christoomey/vim-tmux-navigator',      lazy = false },
 
-    { 'tpope/vim-obsession', lazy = false },
-    { 'tpope/vim-repeat', event = "VeryLazy" },
-    { 'tpope/vim-surround', event = "VeryLazy" },
-    { 'tpope/vim-endwise', event = "VeryLazy" },
-    { 'tpope/vim-commentary',event = "VeryLazy" },
-
+    { 'tpope/vim-obsession',                 lazy = false },
+    { 'tpope/vim-repeat',                    event = "VeryLazy" },
+    { 'tpope/vim-surround',                  event = "VeryLazy" },
+    { 'tpope/vim-endwise',                   event = "VeryLazy" },
+    { 'tpope/vim-commentary',                event = "VeryLazy" },
     { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
 
     {

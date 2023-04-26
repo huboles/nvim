@@ -1,52 +1,52 @@
-vim.o.background = "dark"
+vim.o.background        = "dark"
 
-local black        = "#151515"
-local red          = "#e84f4f"
-local green        = "#b8d68c"
-local yellow       = "#e1aa5d"
-local blue         = "#7dc1cf"
-local purple       = "#9b64fb"
-local pink         = "#6d878d"
-local white        = "#d7d0c7"
+local black             = "#151515"
+local red               = "#e84f4f"
+local green             = "#b8d68c"
+local yellow            = "#e1aa5d"
+local blue              = "#7dc1cf"
+local purple            = "#9b64fb"
+local pink              = "#6d878d"
+local white             = "#d7d0c7"
 
-local dark_grey    = "#333333"
-local grey         = "#888888"
-local light_grey   = "#aaaaaa"
+local dark_grey         = "#333333"
+local grey              = "#888888"
+local light_grey        = "#aaaaaa"
 
-local dark_red     = "#d23d3d"
-local dark_green   = "#a0cf5d"
-local dark_yellow  = "#f39d21"
-local dark_blue    = "#4e9fb1"
-local dark_purple  = "#8542ff"
-local dark_pink    = "#42717b"
-local dark_white   = "#f7f0dd"
+local dark_red          = "#d23d3d"
+local dark_green        = "#a0cf5d"
+local dark_yellow       = "#f39d21"
+local dark_blue         = "#4e9fb1"
+local dark_purple       = "#8542ff"
+local dark_pink         = "#42717b"
+local dark_white        = "#f7f0dd"
 
-local c_black        = "0"
-local c_red          = "1"
-local c_green        = "2"
-local c_yellow       = "3"
-local c_blue         = "4"
-local c_purple       = "5"
-local c_pink         = "6"
-local c_white        = "7"
-local c_grey         = "8"
-local c_dark_red     = "9"
-local c_dark_green   = "10"
-local c_dark_yellow  = "11"
-local c_dark_blue    = "12"
-local c_dark_purple  = "13"
-local c_dark_pink    = "14"
+local c_black           = "0"
+local c_red             = "1"
+local c_green           = "2"
+local c_yellow          = "3"
+local c_blue            = "4"
+local c_purple          = "5"
+local c_pink            = "6"
+local c_white           = "7"
+local c_grey            = "8"
+local c_dark_red        = "9"
+local c_dark_green      = "10"
+local c_dark_yellow     = "11"
+local c_dark_blue       = "12"
+local c_dark_purple     = "13"
+local c_dark_pink       = "14"
 
-vim.g.terminal_color_0 = black
-vim.g.terminal_color_1 = red
-vim.g.terminal_color_2 = green
-vim.g.terminal_color_3 = yellow
-vim.g.terminal_color_4 = blue
-vim.g.terminal_color_5 = purple
-vim.g.terminal_color_6 = pink
-vim.g.terminal_color_7 = white
-vim.g.terminal_color_8 = grey
-vim.g.terminal_color_9 = dark_red
+vim.g.terminal_color_0  = black
+vim.g.terminal_color_1  = red
+vim.g.terminal_color_2  = green
+vim.g.terminal_color_3  = yellow
+vim.g.terminal_color_4  = blue
+vim.g.terminal_color_5  = purple
+vim.g.terminal_color_6  = pink
+vim.g.terminal_color_7  = white
+vim.g.terminal_color_8  = grey
+vim.g.terminal_color_9  = dark_red
 vim.g.terminal_color_10 = dark_green
 vim.g.terminal_color_11 = dark_yellow
 vim.g.terminal_color_12 = dark_blue
@@ -54,22 +54,22 @@ vim.g.terminal_color_13 = dark_purple
 vim.g.terminal_color_14 = dark_pink
 vim.g.terminal_color_15 = dark_white
 
-local bold = "bold"
-local italic = "italic"
-local underline = "underline"
+local bold              = "bold"
+local italic            = "italic"
+local underline         = "underline"
 
 local function highlight(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
     local parts = { group }
-    if guifg then table.insert(parts, "guifg="..guifg) end
-    if guibg then table.insert(parts, "guibg="..guibg) end
-    if ctermfg then table.insert(parts, "ctermfg="..ctermfg) end
-    if ctermbg then table.insert(parts, "ctermbg="..ctermbg) end
+    if guifg then table.insert(parts, "guifg=" .. guifg) end
+    if guibg then table.insert(parts, "guibg=" .. guibg) end
+    if ctermfg then table.insert(parts, "ctermfg=" .. ctermfg) end
+    if ctermbg then table.insert(parts, "ctermbg=" .. ctermbg) end
     if attr then
-        table.insert(parts, "gui="..attr)
-        table.insert(parts, "cterm="..attr)
+        table.insert(parts, "gui=" .. attr)
+        table.insert(parts, "cterm=" .. attr)
     end
-    if guisp then table.insert(parts, "guisp="..guisp) end
-    vim.api.nvim_command('highlight '..table.concat(parts, ' '))
+    if guisp then table.insert(parts, "guisp=" .. guisp) end
+    vim.api.nvim_command('highlight ' .. table.concat(parts, ' '))
 end
 
 -- highlight(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
@@ -288,4 +288,3 @@ highlight("lualine_y_diagnostics_hint_inactive", grey, black, c_grey, c_black, n
 highlight("lualine_c_diff_added_inactive", green, black, c_green, c_black, nil, nil)
 highlight("lualine_c_diff_modified_inactive", yellow, black, c_yellow, c_black, nil, nil)
 highlight("lualine_c_diff_removed_inactive", blue, black, c_blue, c_black, nil, nil)
-

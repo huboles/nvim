@@ -14,7 +14,7 @@ vim.o.clipboard = 'unnamedplus,unnamed'
 
 vim.o.lazyredraw = true
 
-vim.o.number = false 
+vim.o.number = false
 vim.o.signcolumn = 'yes'
 
 vim.o.linebreak = true
@@ -74,4 +74,3 @@ vim.o.termguicolors = true
 
 vim.o.jumpoptions = 'stack'
 vim.o.so = 10
-

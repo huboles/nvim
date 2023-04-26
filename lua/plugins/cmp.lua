@@ -12,49 +12,53 @@ return {
             'hrsh7th/vim-vsnip',
         },
         config = function()
-                local cmp = require'cmp'
-                cmp.setup({
-                    snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end, },
-                    formatting = {
-                        format = require('lspkind').cmp_format({ mode = "text_symbol" })
-                    },
-                    window = { },
-                    mapping = cmp.mapping.preset.insert({
-                        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                        ['<TAB>'] = cmp.mapping.complete(),
-                        ['<C-c>'] = cmp.mapping.abort(),
-                        ['<TAB>'] = cmp.mapping.confirm({ select = true }),
-                    }),
-                    sources = cmp.config.sources({
-                        { name = 'nvim_lsp' },
-                        { name = 'vsnip' },
-                        { name = 'buffer' },
-                    })
+            local cmp = require 'cmp'
+            cmp.setup({
+                snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end, },
+                formatting = {
+                    format = require('lspkind').cmp_format({ mode = "text_symbol" })
+                },
+                window = {},
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<TAB>'] = cmp.mapping.complete(),
+                    ['<C-c>'] = cmp.mapping.abort(),
+                    ['<TAB>'] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'vsnip' },
+                    { name = 'buffer' },
                 })
+            })
 
-                cmp.setup.cmdline({ '/', '?' }, {
-                    view = { entries = {
+            cmp.setup.cmdline({ '/', '?' }, {
+                view = {
+                    entries = {
                         name = 'wildmenu',
                         separator = '|',
                         selection_order = 'near_cursor',
-                    } },
-                    mapping = cmp.mapping.preset.cmdline(),
-                    sources = { { name = 'buffer' } }
-                })
+                    }
+                },
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = { { name = 'buffer' } }
+            })
 
-                cmp.setup.cmdline(':', {
-                    view = { entries = {
+            cmp.setup.cmdline(':', {
+                view = {
+                    entries = {
                         name = 'wildmenu',
                         separator = '|',
                         selection_order = 'near_cursor',
-                    } },
-                    mapping = cmp.mapping.preset.cmdline(),
-                    sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } })
-                })
+                    }
+                },
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } })
+            })
 
-                local capabilities = require('cmp_nvim_lsp').default_capabilities()
-                require('lspconfig')['rust_analyzer'].setup { capabilities = capabilities }
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            require('lspconfig')['rust_analyzer'].setup { capabilities = capabilities }
         end
     },
 }
