@@ -2,7 +2,7 @@
 vim.keymap.set('n', '<leader>h', ":vsplit ")
 vim.keymap.set('n', '<leader>v', ":split ")
 vim.keymap.set('n', '<leader>t', ':tabnew ')
-vim.keymap.set('n', '<leader>b', '<CMD>bprev<CR>')
+vim.keymap.set('n', '<SPACE><SPACE>', '<CMD>bprev<CR>')
 
 -- move through virtual lines
 vim.keymap.set('n', 'j', 'gj')
@@ -12,7 +12,7 @@ vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', 'Q', '@@')
 
 -- center the screen for movement commands
-vim.keymap.set('n', '<space>', 'za')
+vim.keymap.set('n', '<leader>w', 'za')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<C-f>', '<C-f>zz')
