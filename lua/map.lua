@@ -42,6 +42,7 @@ vim.keymap.set('n', '<leader>p', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float)
+
 vim.keymap.set('n', '<leader>d',
     function()
         if vim.g.visible_diagnostics then
@@ -51,5 +52,51 @@ vim.keymap.set('n', '<leader>d',
             vim.diagnostic.enable()
             vim.g.visible_diagnostics = true
         end
+    end
+)
+
+-- live grep in git repo, or fall back to current repo
+vim.keymap.set('n', '<leader>F',
+    function()
+        local function is_git_repo()
+            vim.fn.system("git rev-parse --is-inside-work-tree")
+
+            return vim.v.shell_error == 0
+        end
+
+        local function get_git_root()
+            local dot_git_path = vim.fn.finddir(".git", ".;")
+            return vim.fn.fnamemodify(dot_git_path, ":h")
+        end
+
+        local opts = {}
+
+        if is_git_repo() then
+            opts = {
+                cwd = get_git_root(),
+            }
+        end
+
+        require("telescope.builtin").live_grep(opts)
+    end
+)
+
+vim.keymap.set('n', '<leader>f',
+    function()
+        local function is_git_repo()
+            vim.fn.system("git rev-parse --is-inside-work-tree")
+            return vim.v.shell_error == 0
+        end
+        local function get_git_root()
+            local dot_git_path = vim.fn.finddir(".git", ".;")
+            return vim.fn.fnamemodify(dot_git_path, ":h")
+        end
+        local opts = {}
+        if is_git_repo() then
+            opts = {
+                cwd = get_git_root(),
+            }
+        end
+        require("telescope.builtin").find_files(opts)
     end
 )

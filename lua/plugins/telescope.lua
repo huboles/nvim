@@ -1,11 +1,16 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = {
+                    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+            },
+        },
         keys = {
-            { '<leader>f',     '<CMD>Telescope git_files<CR>' },
-            { '<leader>F',     '<CMD>Telescope find_files<CR>' },
-            { '<leader><C-f>', '<CMD>Telescope live_grep<CR>' },
             { '<leader>b',     '<CMD>Telescope buffers<CR>' },
             { '<leader><C-r>', '<CMD>Telescope command_history<CR>' },
             { '<leader>D',     '<CMD>Telescope diagnostics<CR>' },
@@ -18,11 +23,23 @@ return {
                     layout_config = {
                         height = 0.9,
                         width = 0.9,
-                    }
+                    },
+                    mappings = {
+                        i = { ["<ESC>"] = require('telescope.actions').close },
+                    },
                 },
                 pickers = {},
-                extensions = {},
+                extensions = {
+                    fzf = {
+                        fuzzy = true,
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                        case_mode = 'smart_case',
+                    }
+                },
             }
+
+            require('telescope').load_extension('fzf')
         end
     },
 }
