@@ -27,7 +27,7 @@ local c_green           = "2"
 local c_yellow          = "3"
 local c_blue            = "4"
 local c_purple          = "5"
-local c_pink            = "6"
+local c_cyan            = "6"
 local c_white           = "7"
 local c_grey            = "8"
 local c_dark_red        = "9"
@@ -35,7 +35,7 @@ local c_dark_green      = "10"
 local c_dark_yellow     = "11"
 local c_dark_blue       = "12"
 local c_dark_purple     = "13"
-local c_dark_pink       = "14"
+local c_dark_cyan       = "14"
 
 vim.g.terminal_color_0  = black
 vim.g.terminal_color_1  = red
@@ -85,8 +85,8 @@ highlight("EndOfBuffer", black, black, c_black, c_black, nil, nil)
 highlight("LineNr", yellow, black, c_yellow, c_black, nil, nil)
 highlight("CursorLineNr", red, black, c_red, c_black, bold, nil)
 highlight("MatchParen", nil, grey, nil, c_grey, bold, nil)
-highlight("SpecialKey", cyan, nil, c_pink, nil, nil, nil)
-highlight("NonText", cyan, black, c_pink, c_black, nil, nil)
+highlight("SpecialKey", cyan, nil, c_cyan, nil, nil, nil)
+highlight("NonText", cyan, black, c_cyan, c_black, nil, nil)
 highlight("Search", nil, green, nil, c_green, nil, nil)
 highlight("Visual", nil, dark_grey, nil, c_grey, nil, nil)
 highlight("Folded", blue, dark_grey, c_blue, c_grey, nil, nil)
@@ -115,7 +115,7 @@ highlight("CursorLine", white, grey, c_white, c_grey, nil, nil)
 
 -- Spelling
 highlight("SpellBad", red, black, c_red, c_black, underline, red)
-highlight("SpellCap", cyan, black, c_pink, c_black, underline, cyan)
+highlight("SpellCap", cyan, black, c_cyan, c_black, underline, cyan)
 highlight("SpellRare", green, black, c_green, c_black, underline, green)
 highlight("SpellLocal", magenta, black, c_purple, c_black, underline, magenta)
 
@@ -142,8 +142,8 @@ highlight("DiagnosticUnderlineHint", nil, nil, nil, nil, underline, grey)
 highlight("CmpItemAbbrMatch", dark_blue, "NONE", c_dark_blue, "NONE", nil, nil)
 highlight("CmpItemAbbrMatchFuzzy", blue, "NONE", c_blue, "NONE", nil, nil)
 highlight("CmpItemKindVariable", green, "NONE", c_green, "NONE", nil, nil)
-highlight("CmpItemKindInterface", dark_cyan, "NONE", c_dark_pink, "NONE", nil, nil)
-highlight("CmpItemKindText", cyan, "NONE", c_pink, "NONE", nil, nil)
+highlight("CmpItemKindInterface", dark_cyan, "NONE", c_dark_cyan, "NONE", nil, nil)
+highlight("CmpItemKindText", cyan, "NONE", c_cyan, "NONE", nil, nil)
 highlight("CmpItemKindFunction", magenta, "NONE", c_purple, "NONE", nil, nil)
 highlight("CmpItemKindMethod", magenta, "NONE", c_purple, "NONE", nil, nil)
 highlight("CmpItemKindKeyword", dark_yellow, "NONE", c_dark_yellow, "NONE", nil, nil)
@@ -195,7 +195,7 @@ highlight("Debug", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 
 -- Diff
 highlight("DiffAdd", black, green, c_black, c_green, nil, nil)
-highlight("DiffText", black, cyan, c_black, c_pink, nil, nil)
+highlight("DiffText", black, cyan, c_black, c_cyan, nil, nil)
 highlight("DiffDelete", black, red, c_black, c_red, nil, nil)
 highlight("DiffChange", black, magenta, c_black, c_purple, nil, nil)
 
@@ -209,6 +209,14 @@ highlight("RedrawDebugRecompose", black, red, c_black, c_red, nil, nil)
 highlight("LazyButton", white, black, c_white, c_black, nil, nil)
 highlight("LazyButtonActive", white, black, c_white, c_black, bold, nil)
 highlight("LazyH1", white, black, c_white, c_black, bold, nil)
+
+-- completion
+highlight("CmpItemAbbrDefault", white, black, c_white, c_black, nil, nil)
+highlight("CmpItemMenuDefault", white, black, c_white, c_black, nil, nil)
+highlight("CmpItemAbbrDeprecatedDefault", white, black, c_white, c_black, nil, nil)
+highlight("CmpItemAbbrMatchDefault", dark_blue, black, c_white, c_dark_blue, nil, nil)
+highlight("CmpItemAbbrMatchFuzzyDefault", blue, black, c_white, c_blue, nil, nil)
+highlight("CmpItemKindDefault", cyan, black, c_white, c_cyan, nil, nil)
 
 -- Lualine
 highlight("lualine_a_visual", black, yellow, c_black, c_yellow, nil, nil)
@@ -226,8 +234,8 @@ highlight("lualine_c_command", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_a_insert", black, green, c_black, c_green, nil, nil)
 highlight("lualine_b_insert", green, black, c_green, c_black, nil, nil)
 highlight("lualine_c_insert", grey, black, c_grey, c_black, nil, nil)
-highlight("lualine_a_terminal", black, cyan, c_black, c_pink, nil, nil)
-highlight("lualine_b_terminal", cyan, black, c_pink, c_black, nil, nil)
+highlight("lualine_a_terminal", black, cyan, c_black, c_cyan, nil, nil)
+highlight("lualine_b_terminal", cyan, black, c_cyan, c_black, nil, nil)
 highlight("lualine_c_terminal", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_a_inactive", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_b_inactive", grey, black, c_grey, c_black, nil, nil)
