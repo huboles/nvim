@@ -18,30 +18,30 @@ return {
                 ensure_installed = { 'rust_analyzer' }
             })
 
-            -- local handlers = {
-            --     function(server_name)
-            --         require("lspconfig")[server_name].setup({})
-            --     end,
-            -- }
+            local handlers = {
+                function(server_name)
+                    require("lspconfig")[server_name].setup({})
+                end,
+            }
 
-            -- require('mason-lspconfig').setup_handlers(handlers)
+            require('mason-lspconfig').setup_handlers(handlers)
 
             --  docker_compose_language_service, jsonls, marksman, yamlls, awk_ls, solargraph, bashls, dockerls, clangd, lua_ls, vimls, rust_analyzer, html, cssls
 
-            require('lspconfig').docker_compose_language_service.setup({})
-            require('lspconfig').jsonls.setup({})
-            require('lspconfig').marksman.setup({})
-            require('lspconfig').yamlls.setup({})
-            require('lspconfig').awk_ls.setup({})
-            require('lspconfig').solargraph.setup({})
-            require('lspconfig').bashls.setup({})
-            require('lspconfig').dockerls.setup({})
-            require('lspconfig').clangd.setup({})
-            require('lspconfig').lua_ls.setup({})
-            require('lspconfig').vimls.setup({})
-            require('lspconfig').rust_analyzer.setup({})
-            require('lspconfig').html.setup({})
-            require('lspconfig').cssls.setup({})
+            -- require('lspconfig').docker_compose_language_service.setup({})
+            -- require('lspconfig').jsonls.setup({})
+            -- require('lspconfig').marksman.setup({})
+            -- require('lspconfig').yamlls.setup({})
+            -- require('lspconfig').awk_ls.setup({})
+            -- require('lspconfig').solargraph.setup({})
+            -- require('lspconfig').bashls.setup({})
+            -- require('lspconfig').dockerls.setup({})
+            -- require('lspconfig').clangd.setup({})
+            -- require('lspconfig').lua_ls.setup({})
+            -- require('lspconfig').vimls.setup({})
+            -- require('lspconfig').rust_analyzer.setup({})
+            -- require('lspconfig').html.setup({})
+            -- require('lspconfig').cssls.setup({})
 
             local border = {
                 { "┏", "FloatBorder" },
