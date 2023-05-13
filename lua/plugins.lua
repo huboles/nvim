@@ -28,7 +28,7 @@ return {
 
     {
         'akinsho/toggleterm.nvim',
-        keys = { { '<leader><space>', '<CMD>ToggleTerm<CR>' } },
+        keys = { { [[<LEADER>\]], '<CMD>ToggleTerm<CR>' } },
         opts = {
             shade_terminals = false,
             size = 10

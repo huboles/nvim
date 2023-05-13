@@ -1,10 +1,5 @@
--- quick splits, tabs, buffers
-vim.keymap.set('n', '<LEADER>h', ":vsplit ")
-vim.keymap.set('n', '<LEADER>v', ":split ")
-vim.keymap.set('n', '<LEADER>t', ':tabnew ')
-vim.keymap.set('n', '<LEADER><SPACE>', '<CMD>bprev<CR>')
-
 -- movement enhancers
+vim.keymap.set('n', '<LEADER><SPACE>', '<CMD>bprev<CR>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', '<LEADER>w', 'za')
@@ -21,7 +16,9 @@ vim.keymap.set('n', 'Q', '@@')
 -- useful ex (:) commands
 vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set('n', '<LEADER>c', ':r!')
-vim.keymap.set('n', '<LEADER>Q', '<CMD>so<CR>')
+vim.keymap.set('n', '<LEADER>h', ":vsplit ")
+vim.keymap.set('n', '<LEADER>v', ":split ")
+vim.keymap.set('n', '<LEADER>t', ':tabnew ')
 
 -- better line editing
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -34,6 +31,7 @@ vim.keymap.set('n', 'K', 'Jx')
 -- quick config editing
 vim.keymap.set('n', '<LEADER>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<LEADER>q', '<CMD>Lazy<CR>')
+vim.keymap.set('n', '<LEADER>Q', '<CMD>so<CR>')
 
 -- better terminal movement keys
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]])
