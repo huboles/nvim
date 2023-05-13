@@ -18,8 +18,10 @@ vim.keymap.set('n', '<C-i>', '<C-i>zz')
 -- quick redo last macro
 vim.keymap.set('n', 'Q', '@@')
 
--- replace word thats under cursor
+-- useful ex (:) commands
 vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<LEADER>c', ':r!')
+vim.keymap.set('n', '<LEADER>Q', '<CMD>so<CR>')
 
 -- better line editing
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

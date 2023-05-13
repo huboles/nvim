@@ -2,4 +2,5 @@
 !.gitignore
 !*.lua
 !lua/
-!lua/plugins/
+!lua/plugins
+!lua/huck
