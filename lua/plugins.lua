@@ -28,7 +28,7 @@ return {
         keys = {
             { '<leader>l', '<CMD>TroubleToggle document_diagnostics<CR>' },
             { '<leader>L', '<CMD>TroubleToggle workspace_diagnostics<CR>' },
-            { '<leader>r', '<CMD>TroubleToggle lsp_references<CR>' },
+            { '<leader>R', '<CMD>TroubleToggle lsp_references<CR>' },
         },
         opts = {
             icons = false,
