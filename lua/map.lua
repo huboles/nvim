@@ -8,6 +8,10 @@ vim.keymap.set('n', '<LEADER><SPACE>', '<CMD>bprev<CR>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
+-- move visual selections
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 -- quick redo last macro
 vim.keymap.set('n', 'Q', '@@')
 
