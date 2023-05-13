@@ -15,6 +15,17 @@ return {
     { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
 
     {
+        'tpope/vim-fugitive',
+        keys = {
+            { '<leader>G',  '<CMD>Git<CR>' },
+            { '<leader>gc', '<CMD>Git commit<CR>' },
+            { '<leader>ga', '<CMD>Git add %<CR>' },
+            { '<leader>gd', '<CMD>Gdiffsplit<CR>' },
+            { '<leader>gb', '<CMD>Git blame<CR>' },
+        },
+    },
+
+    {
         'akinsho/toggleterm.nvim',
         keys = { { '<leader><space>', '<CMD>ToggleTerm<CR>' } },
         opts = {

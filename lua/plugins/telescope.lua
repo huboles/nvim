@@ -14,7 +14,6 @@ return {
             { '<leader>b',     '<CMD>Telescope buffers<CR>' },
             { '<leader><C-r>', '<CMD>Telescope command_history<CR>' },
             { '<leader>D',     '<CMD>Telescope diagnostics<CR>' },
-            { '<leader>g',     '<CMD>Telescope git_commits<CR>' },
         },
         config = function()
             require('telescope').setup {

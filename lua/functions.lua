@@ -1,8 +1,10 @@
 -- open help windows in a vertical split
 vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = { "*.txt" },
+    pattern = { "*" },
     callback = function()
-        if vim.o.filetype == 'help' then vim.cmd.wincmd("L") end
+        if vim.o.filetype == 'help' or 'fugitive' or 'gitcommit' then
+            vim.cmd.wincmd("L")
+        end
     end
 })
 
