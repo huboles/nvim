@@ -22,6 +22,7 @@ return {
             { '<leader>ga', '<CMD>Git add %<CR>' },
             { '<leader>gd', '<CMD>Gdiffsplit<CR>' },
             { '<leader>gb', '<CMD>Git blame<CR>' },
+            { '<leader>gp', '<CMD>Git push<CR>' },
         },
     },
 

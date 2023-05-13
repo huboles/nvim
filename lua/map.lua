@@ -1,21 +1,12 @@
--- quick creation for splits, tabs, buffers
+-- quick splits, tabs, buffers
 vim.keymap.set('n', '<LEADER>h', ":vsplit ")
 vim.keymap.set('n', '<LEADER>v', ":split ")
 vim.keymap.set('n', '<LEADER>t', ':tabnew ')
 vim.keymap.set('n', '<LEADER><SPACE>', '<CMD>bprev<CR>')
 
--- move through virtual lines
+-- movement enhancers
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
-
--- move visual selections
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-
--- quick redo last macro
-vim.keymap.set('n', 'Q', '@@')
-
--- center the screen for movement commands
 vim.keymap.set('n', '<LEADER>w', 'za')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
@@ -24,12 +15,21 @@ vim.keymap.set('n', '<C-b>', '<C-b>zz')
 vim.keymap.set('n', '<C-o>', '<C-o>zz')
 vim.keymap.set('n', '<C-i>', '<C-i>zz')
 
--- normal mode line splitting and joining
+-- quick redo last macro
+vim.keymap.set('n', 'Q', '@@')
+
+-- replace word thats under cursor
+vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- better line editing
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', 'H', 'i<CR><ESC>zzO')
+vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', 'L', 'i<CR><ESC>zzi')
 vim.keymap.set('n', 'K', 'Jx')
 
--- quick plugin editing
+-- quick config editing
 vim.keymap.set('n', '<LEADER>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<LEADER>q', '<CMD>Lazy<CR>')
 
@@ -44,6 +44,7 @@ vim.keymap.set('n', '<LEADER>r', vim.lsp.buf.rename)
 vim.keymap.set('n', '<LEADER>k', vim.lsp.buf.hover)
 vim.keymap.set('n', '<LEADER>K', vim.diagnostic.open_float)
 
+-- toggle lsp diagnostics
 vim.keymap.set('n', '<LEADER>d',
     function()
         if vim.g.visible_diagnostics then
@@ -56,7 +57,7 @@ vim.keymap.set('n', '<LEADER>d',
     end
 )
 
--- live grep in git repo, or fall back to current repo
+-- live grep in git repo, or fall back to current directory
 vim.keymap.set('n', '<LEADER>F',
     function()
         local function is_git_repo()
@@ -82,6 +83,7 @@ vim.keymap.set('n', '<LEADER>F',
     end
 )
 
+-- fuzzy search over git files, or fall back to all files
 vim.keymap.set('n', '<LEADER>f',
     function()
         local function is_git_repo()
