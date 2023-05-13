@@ -37,10 +37,11 @@ vim.keymap.set('n', '<LEADER>Q', '<CMD>so<CR>')
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
 
--- lsp diagnostic navigation
+-- lsp diagnostics
 vim.keymap.set('n', '<LEADER>n', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<LEADER>p', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<LEADER>r', vim.lsp.buf.rename)
+vim.keymap.set('n', '<LEADER>a', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<LEADER>k', vim.lsp.buf.hover)
 vim.keymap.set('n', '<LEADER>K', vim.diagnostic.open_float)
 
