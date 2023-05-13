@@ -25,9 +25,6 @@ vim.keymap.set('n', 'H', 'i<CR><ESC>zzO')
 vim.keymap.set('n', 'L', 'i<CR><ESC>zzi')
 vim.keymap.set('n', 'K', 'Jx')
 
--- toggle ui elements
-vim.keymap.set('n', '_', '<CMD>nohlsearch<CR>')
-
 -- quick plugin editing
 vim.keymap.set('n', '<LEADER>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<LEADER>q', '<CMD>Lazy<CR>')
