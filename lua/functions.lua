@@ -2,7 +2,8 @@
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = { "*" },
     callback = function()
-        if vim.o.filetype == 'help' or 'fugitive' or 'gitcommit' then
+        local filetype = vim.o.filetype
+        if filetype == 'help' or filetype == 'fugitive' or filetype == 'gitcommit' then
             vim.cmd.wincmd("L")
         end
     end
