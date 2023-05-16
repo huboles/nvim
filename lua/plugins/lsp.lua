@@ -1,47 +1,100 @@
 return {
     {
-        'neovim/nvim-lspconfig',
-        -- event = { 'BufReadPre', 'BufNewFile' },
-        lazy = false,
+        "jose-elias-alvarez/null-ls.nvim",
         dependencies = {
-            'nvim-cmp',
-            'nvim-treesitter',
-            'Maan2003/lsp_lines.nvim',
-            { 'williamboman/mason.nvim',      build = ':MasonUpdate' },
-            { 'williamboman/mason-lspconfig', version = '1.3.0' },
+            "plenary.nvim",
+            {
+                "jay-babu/mason-null-ls.nvim",
+                dependencies = { "mason.nvim" },
+                config = function()
+                    local mason_null = function(source_name, methods)
+                        require("mason-null-ls").default_setup(source_name, methods)
+                    end
+
+                    require("mason-null-ls").setup({
+                        automatic_installation = true,
+                        handlers = {
+                            function()
+                            end,
+                            proselint = mason_null,
+                            codespell = mason_null,
+                            shellcheck = mason_null,
+                            write_good = mason_null,
+                            shellharden = mason_null,
+                        },
+                    })
+                end,
+            },
         },
         config = function()
-            require('mason').setup()
+            local null_ls = require("null-ls")
+            local diagnostics = null_ls.builtins.diagnostics
+            local formatting = null_ls.builtins.formatting
+            local hover = null_ls.builtins.hover
+            local completion = null_ls.builtins.completion
 
-            require('mason-lspconfig').setup({
-                automatic_installation = true,
-                ensure_installed = { 'rust_analyzer' }
+            require("null-ls").setup({
+                sources = {
+                    completion.spell,
+                    diagnostics.todo_comments,
+                    diagnostics.trail_space,
+                    formatting.trim_whitespace,
+                    formatting.trim_newlines,
+                    hover.dictionary,
+                    hover.printenv,
+                },
             })
+        end,
+    },
 
-            local handlers = {
-                function(server_name)
-                    require("lspconfig")[server_name].setup({})
+    {
+        "williamboman/mason-lspconfig",
+        dependencies = {
+            {
+                "williamboman/mason.nvim",
+                build = ":MasonUpdate",
+                config = function()
+                    require("mason").setup()
                 end,
-            }
+            },
+        },
+        version = "1.3.0",
+        config = function()
+            require("mason-lspconfig").setup({
+                automatic_installation = true,
+                ensure_installed = { "rust_analyzer", "clangd", "lua_ls", "solargraph" },
+            })
+        end,
+    },
 
-            require('mason-lspconfig').setup_handlers(handlers)
-
-            --  docker_compose_language_service, jsonls, marksman, yamlls, awk_ls, solargraph, bashls, dockerls, clangd, lua_ls, vimls, rust_analyzer, html, cssls
-
-            -- require('lspconfig').docker_compose_language_service.setup({})
-            -- require('lspconfig').jsonls.setup({})
-            -- require('lspconfig').marksman.setup({})
-            -- require('lspconfig').yamlls.setup({})
-            -- require('lspconfig').awk_ls.setup({})
-            -- require('lspconfig').solargraph.setup({})
-            -- require('lspconfig').bashls.setup({})
-            -- require('lspconfig').dockerls.setup({})
-            -- require('lspconfig').clangd.setup({})
-            -- require('lspconfig').lua_ls.setup({})
-            -- require('lspconfig').vimls.setup({})
-            -- require('lspconfig').rust_analyzer.setup({})
-            -- require('lspconfig').html.setup({})
-            -- require('lspconfig').cssls.setup({})
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        lazy = false,
+        dependencies = {
+            "mason-lspconfig",
+            "nvim-cmp",
+            "nvim-treesitter",
+            "null-ls.nvim",
+            "Maan2003/lsp_lines.nvim",
+        },
+        config = function()
+            local lsp = require("lspconfig")
+            lsp.awk_ls.setup({})
+            lsp.bashls.setup({})
+            lsp.clangd.setup({})
+            lsp.cssls.setup({})
+            lsp.dockerls.setup({})
+            lsp.docker_compose_language_service.setup({})
+            lsp.html.setup({})
+            lsp.jsonls.setup({})
+            lsp.lua_ls.setup({})
+            lsp.marksman.setup({})
+            lsp.solargraph.setup({})
+            -- lsp.sorbet.setup({})
+            lsp.rust_analyzer.setup({})
+            lsp.taplo.setup({})
+            lsp.yamlls.setup({})
 
             local border = {
                 { "┏", "FloatBorder" },
@@ -58,7 +111,7 @@ return {
                 signs = true,
                 underline = true,
                 update_in_insert = false,
-                severity_sort = { reverse = true },
+                severity_sort = { reverse = false },
             }
 
             local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
@@ -73,24 +126,6 @@ return {
                 opts.border = opts.border or border
                 return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
-        end
+        end,
     },
-
-    {
-        'jay-babu/mason-null-ls.nvim',
-        lazy = { 'BufReadPre', 'BufNewFile' },
-        dependencies = {
-            'mason.nvim',
-            {
-                'jose-elias-alvarez/null-ls.nvim',
-                dependencies = { 'plenary.nvim' },
-            }
-        },
-        config = function()
-            require('mason-null-ls').setup({
-                automatic_setup = true,
-            })
-        end
-    },
-
 }
