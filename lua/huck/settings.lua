@@ -8,6 +8,7 @@ vim.g.netrw_liststyle = 4
 
 vim.g.visible_diagnostics = true
 
+vim.o.mouse = 'a'
 vim.o.mousefocus = true
 vim.o.mousemodel = 'extend'
 vim.o.clipboard = 'unnamedplus,unnamed'

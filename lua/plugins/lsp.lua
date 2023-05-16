@@ -17,7 +17,6 @@ return {
                             function()
                             end,
                             proselint = mason_null,
-                            codespell = mason_null,
                             shellcheck = mason_null,
                             write_good = mason_null,
                             shellharden = mason_null,
