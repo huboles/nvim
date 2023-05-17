@@ -18,7 +18,6 @@ return {
                             end,
                             proselint = mason_null,
                             shellcheck = mason_null,
-                            write_good = mason_null,
                             shellharden = mason_null,
                         },
                     })
@@ -30,11 +29,9 @@ return {
             local diagnostics = null_ls.builtins.diagnostics
             local formatting = null_ls.builtins.formatting
             local hover = null_ls.builtins.hover
-            local completion = null_ls.builtins.completion
 
             require("null-ls").setup({
                 sources = {
-                    completion.spell,
                     diagnostics.todo_comments,
                     diagnostics.trail_space,
                     formatting.trim_whitespace,
