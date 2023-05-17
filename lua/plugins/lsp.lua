@@ -3,6 +3,7 @@ return {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = {
             "plenary.nvim",
+            "nvim-treesitter",
             {
                 "jay-babu/mason-null-ls.nvim",
                 dependencies = { "mason.nvim" },
@@ -46,6 +47,7 @@ return {
     {
         "williamboman/mason-lspconfig",
         dependencies = {
+            "nvim-treesitter",
             {
                 "williamboman/mason.nvim",
                 build = ":MasonUpdate",
@@ -75,6 +77,7 @@ return {
             "Maan2003/lsp_lines.nvim",
         },
         config = function()
+            -- servers to setup
             local lsp = require("lspconfig")
             lsp.awk_ls.setup({})
             lsp.bashls.setup({})
@@ -87,11 +90,26 @@ return {
             lsp.lua_ls.setup({})
             lsp.marksman.setup({})
             lsp.solargraph.setup({})
-            -- lsp.sorbet.setup({})
             lsp.rust_analyzer.setup({})
             lsp.taplo.setup({})
             lsp.yamlls.setup({})
 
+            -- diagnostic settings
+            vim.lsp.diagnostics = {
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = { reverse = false },
+            }
+
+            -- custom signs
+            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
+
+            -- borders on windows
             local border = {
                 { "┏", "FloatBorder" },
                 { "━", "FloatBorder" },
@@ -103,25 +121,20 @@ return {
                 { "┃", "FloatBorder" },
             }
 
-            vim.lsp.diagnostics = {
-                signs = true,
-                underline = true,
-                update_in_insert = false,
-                severity_sort = { reverse = false },
-            }
-
-            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
-
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}
                 opts.border = opts.border or border
                 return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
+
+            -- auto format code on save
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = { "*" },
+                callback = function()
+                    vim.lsp.buf.format()
+                end,
+            })
         end,
     },
 }
