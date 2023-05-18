@@ -26,7 +26,7 @@ local c_red             = "1"
 local c_green           = "2"
 local c_yellow          = "3"
 local c_blue            = "4"
-local c_purple          = "5"
+local c_magenta         = "5"
 local c_cyan            = "6"
 local c_white           = "7"
 local c_grey            = "8"
@@ -34,7 +34,7 @@ local c_dark_red        = "9"
 local c_dark_green      = "10"
 local c_dark_yellow     = "11"
 local c_dark_blue       = "12"
-local c_dark_purple     = "13"
+local c_dark_magenta    = "13"
 local c_dark_cyan       = "14"
 
 vim.g.terminal_color_0  = black
@@ -74,12 +74,12 @@ end
 
 -- highlight(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
 
--- Attributes
+-- attributes
 highlight("Bold", nil, nil, nil, nil, bold, nil)
 highlight("Italic", nil, nil, nil, nil, italic, nil)
 highlight("Underline", nil, nil, nil, nil, underline, nil)
 
--- Editor
+-- editor
 highlight("Normal", white, black, c_white, nil, nil, nil)
 highlight("EndOfBuffer", black, black, c_black, c_black, nil, nil)
 highlight("LineNr", yellow, black, c_yellow, c_black, nil, nil)
@@ -92,7 +92,7 @@ highlight("Visual", nil, dark_grey, nil, c_grey, nil, nil)
 highlight("Folded", blue, dark_grey, c_blue, c_grey, nil, nil)
 highlight("FoldColumn", blue, dark_grey, c_blue, c_grey, nil, nil)
 
--- UI
+-- ui
 highlight("WildMenu", grey, black, c_grey, c_black, nil, nil)
 highlight("Title", green, black, c_green, c_black, bold, nil)
 highlight("ToolBarLine", dark_grey, black, c_grey, c_black, nil, nil)
@@ -113,13 +113,13 @@ highlight("Directory", blue, nil, c_blue, nil, bold, nil)
 highlight("Conceal", grey, black, c_grey, c_black, nil, nil)
 highlight("CursorLine", white, grey, c_white, c_grey, nil, nil)
 
--- Spelling
+-- spelling
 highlight("SpellBad", red, black, c_red, c_black, underline, red)
 highlight("SpellCap", cyan, black, c_cyan, c_black, underline, cyan)
 highlight("SpellRare", green, black, c_green, c_black, underline, green)
-highlight("SpellLocal", magenta, black, c_purple, c_black, underline, magenta)
+highlight("SpellLocal", magenta, black, c_magenta, c_black, underline, magenta)
 
--- Messages
+-- messages
 highlight("Question", green, black, c_green, c_black, nil, nil)
 highlight("Error", black, red, c_black, c_red, nil, nil)
 highlight("ErrorMsg", red, black, c_red, c_black, underline, nil)
@@ -128,7 +128,7 @@ highlight("Todo", black, dark_yellow, c_black, c_dark_yellow, bold, nil)
 highlight("MoreMsg", green, black, c_green, c_black, bold, nil)
 highlight("NvimInternalError", black, dark_red, c_black, c_dark_red, nil, nil)
 
--- LSP
+-- lsp
 highlight("DiagnosticError", dark_red, black, c_dark_red, c_black, nil, nil)
 highlight("DiagnosticWarn", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("DiagnosticInfo", dark_blue, black, c_dark_blue, c_black, nil, nil)
@@ -138,32 +138,32 @@ highlight("DiagnosticUnderlineWarn", nil, nil, nil, nil, underline, dark_yellow)
 highlight("DiagnosticUnderlineInfo", nil, nil, nil, nil, underline, dark_blue)
 highlight("DiagnosticUnderlineHint", nil, nil, nil, nil, underline, grey)
 
--- Completion
+-- completion
 highlight("CmpItemAbbrMatch", dark_blue, "NONE", c_dark_blue, "NONE", nil, nil)
 highlight("CmpItemAbbrMatchFuzzy", blue, "NONE", c_blue, "NONE", nil, nil)
 highlight("CmpItemKindVariable", green, "NONE", c_green, "NONE", nil, nil)
 highlight("CmpItemKindInterface", dark_cyan, "NONE", c_dark_cyan, "NONE", nil, nil)
 highlight("CmpItemKindText", cyan, "NONE", c_cyan, "NONE", nil, nil)
-highlight("CmpItemKindFunction", magenta, "NONE", c_purple, "NONE", nil, nil)
-highlight("CmpItemKindMethod", magenta, "NONE", c_purple, "NONE", nil, nil)
+highlight("CmpItemKindFunction", magenta, "NONE", c_magenta, "NONE", nil, nil)
+highlight("CmpItemKindMethod", magenta, "NONE", c_magenta, "NONE", nil, nil)
 highlight("CmpItemKindKeyword", dark_yellow, "NONE", c_dark_yellow, "NONE", nil, nil)
 highlight("CmpItemKindProperty", dark_yellow, "NONE", c_dark_yellow, "NONE", nil, nil)
 highlight("CmpItemKindUnit", dark_yellow, "NONE", c_dark_yellow, "NONE", nil, nil)
 
--- Indent lines
+-- indent lines
 highlight("IndentBlanklineChar", dark_grey, nil, c_grey, nil, "NONE", nil)
 highlight("IndentBlanklineSpaceChar", dark_grey, nil, c_grey, nil, "NONE", nil)
 highlight("IndentBlanklineSpaceCharBlankline", dark_grey, nil, c_grey, nil, "NONE", nil)
 
--- Syntax highlighting
+-- syntax highlighting
 highlight("Comment", grey, black, c_grey, c_black, italic, nil)
 
-highlight("Constant", dark_magenta, black, c_dark_purple, c_black, nil, nil)
+highlight("Constant", white, black, c_cyan, c_black, "bold,italic", nil)
 highlight("String", white, black, c_white, c_black, italic, nil)
 highlight("Number", white, black, c_white, c_black, bold, nil)
 highlight("Float", white, black, c_white, c_black, bold, nil)
 highlight("Character", white, black, c_white, c_black, bold, nil)
-highlight("Boolean", dark_magenta, black, c_dark_purple, c_black, bold, nil)
+highlight("Boolean", magenta, black, c_magenta, c_black, bold, nil)
 
 highlight("Function", dark_blue, black, c_dark_blue, c_black, bold, nil)
 highlight("Identifier", blue, black, c_blue, c_black, nil, nil)
@@ -193,19 +193,19 @@ highlight("Delimiter", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 highlight("SpecialComment", yellow, black, c_yellow, c_black, italic, nil)
 highlight("Debug", dark_yellow, black, c_dark_yellow, c_black, nil, nil)
 
--- Diff
+-- diff
 highlight("DiffAdd", black, green, c_black, c_green, nil, nil)
 highlight("DiffText", black, cyan, c_black, c_cyan, nil, nil)
 highlight("DiffDelete", black, red, c_black, c_red, nil, nil)
-highlight("DiffChange", black, magenta, c_black, c_purple, nil, nil)
+highlight("DiffChange", black, magenta, c_black, c_magenta, nil, nil)
 
--- Redraw
+-- redraw
 highlight("RedrawDebugNormal", black, white, c_black, c_white, nil, nil)
 highlight("RedrawDebugClear", black, dark_yellow, c_black, c_dark_yellow, nil, nil)
 highlight("RedrawDebugComposed", black, green, c_black, c_green, nil, nil)
 highlight("RedrawDebugRecompose", black, red, c_black, c_red, nil, nil)
 
--- Lazy.nvim
+-- lazy.nvim
 highlight("LazyButton", white, black, c_white, c_black, nil, nil)
 highlight("LazyButtonActive", white, black, c_white, c_black, bold, nil)
 highlight("LazyH1", white, black, c_white, c_black, bold, nil)
@@ -218,12 +218,12 @@ highlight("CmpItemAbbrMatchDefault", dark_blue, black, c_white, c_dark_blue, nil
 highlight("CmpItemAbbrMatchFuzzyDefault", blue, black, c_white, c_blue, nil, nil)
 highlight("CmpItemKindDefault", cyan, black, c_white, c_cyan, nil, nil)
 
--- Lualine
+-- lualine
 highlight("lualine_a_visual", black, yellow, c_black, c_yellow, nil, nil)
 highlight("lualine_b_visual", yellow, black, c_yellow, c_black, nil, nil)
 highlight("lualine_c_visual", grey, black, c_grey, c_black, nil, nil)
-highlight("lualine_a_replace", black, magenta, c_black, c_purple, nil, nil)
-highlight("lualine_b_replace", magenta, black, c_purple, c_black, nil, nil)
+highlight("lualine_a_replace", black, magenta, c_black, c_magenta, nil, nil)
+highlight("lualine_b_replace", magenta, black, c_magenta, c_black, nil, nil)
 highlight("lualine_c_replace", grey, black, c_grey, c_black, nil, nil)
 highlight("lualine_a_normal", white, black, c_white, c_black, nil, nil)
 highlight("lualine_b_normal", white, black, c_white, c_black, nil, nil)

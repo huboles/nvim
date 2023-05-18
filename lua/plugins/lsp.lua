@@ -17,7 +17,6 @@ return {
                         handlers = {
                             function()
                             end,
-                            proselint = mason_null,
                             shellcheck = mason_null,
                             shellharden = mason_null,
                         },
@@ -101,6 +100,9 @@ return {
                 update_in_insert = false,
                 severity_sort = { reverse = false },
             }
+
+            -- don't override treesitter colors
+            vim.highlight.priorities.semantic_tokens = 95
 
             -- custom signs
             local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
