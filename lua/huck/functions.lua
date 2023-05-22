@@ -9,6 +9,14 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 
+-- set filetype for .meta files
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = { "*.meta" },
+    callback = function()
+        vim.cmd.setfiletype("markdown")
+    end,
+})
+
 -- check template folder and if a template.[filetype] exists use it
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = { "*" },
