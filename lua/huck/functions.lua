@@ -1,4 +1,4 @@
--- open help windows in a vertical split
+-- open certain windows in a vertical split
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = { "*" },
     callback = function()
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
         if ext ~= "" then
             copy("template.")
-        elseif filename == "Makefile" or "LICENSE" then
+        elseif filename == "Makefile" or filename == "LICENSE" then
             copy(filename)
         end
     end,
