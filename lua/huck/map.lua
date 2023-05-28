@@ -1,5 +1,5 @@
 -- movement enhancers
-vim.keymap.set('n', '<LEADER><SPACE>', '<CMD>bnext<CR>')
+vim.keymap.set('n', '<LEADER><SPACE>', '<C-^>')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('n', '<LEADER>w', 'za')
