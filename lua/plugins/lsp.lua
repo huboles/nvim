@@ -59,7 +59,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 automatic_installation = true,
-                ensure_installed = { "rust_analyzer", "clangd", "lua_ls", "solargraph" },
+                ensure_installed = { "rust_analyzer", "clangd", "lua_ls" },
             })
         end,
     },
