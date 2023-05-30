@@ -17,6 +17,14 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 
+-- set text width
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = { "*.md", "*.txt" },
+    callback = function()
+        vim.o.textwidth = 80
+    end,
+})
+
 -- check template folder and if a template.[filetype] exists use it
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = { "*" },
