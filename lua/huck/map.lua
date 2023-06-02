@@ -15,6 +15,9 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 -- quick redo last macro
 vim.keymap.set('n', 'Q', '@@')
 
+-- undo and redo on same key
+vim.keymap.set('n', 'U', '<C-r>')
+
 -- useful ex (:) commands
 vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set('n', '<LEADER>c', ':r!')
