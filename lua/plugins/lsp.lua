@@ -120,15 +120,9 @@ return {
             lsp.bashls.setup({})
             lsp.clangd.setup({})
             lsp.cssls.setup({})
-            lsp.dockerls.setup({})
-            lsp.docker_compose_language_service.setup({})
             lsp.html.setup({})
-            lsp.jsonls.setup({})
             lsp.lua_ls.setup({})
-            lsp.marksman.setup({})
             lsp.solargraph.setup({})
-            lsp.taplo.setup({})
-            lsp.yamlls.setup({})
 
             -- diagnostic settings
             vim.lsp.diagnostics = {
