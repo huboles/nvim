@@ -78,44 +78,44 @@ return {
         config = function()
             -- servers to setup
             local lsp = require("lspconfig")
-            lsp.rust_analyzer.setup({
-                settings = {
-                    ['rust-analyzer'] = {
-                        completion = {
-                            privateEditable = true,
-                            completionItem = {
-                                preselectSupport = true,
-                                snippetSupport = true,
-                            }
-                        },
-                        hover = {
-                            actions = {
-                                enable = true,
-                                references = true,
-                            }
-                        },
-                        imports = {
-                            granularity = {
-                                enforce = true,
-                            },
-                            group = true,
-                            prefix = "self",
-                        },
-                        inlayHints = {
-                            closureCaptureHints       = true,
-                            closureReturnTypeHints    = true,
-                            lifetimeElisionHints      = true,
-                            discriminantHints         = true,
-                            expressionAdjustmentHints = { enable = true, mode = "postfix" },
-                            closingBraceHints         = { enable = true, minLines = 1 },
-                        },
-                        highlightRelated = { enable = true },
-                        magicCompletions = { enable = true },
-                        procMacro = {
-                            enable = true
-                        } }
-                }
-            })
+            -- lsp.rust_analyzer.setup({
+            --     settings = {
+            --         ['rust-analyzer'] = {
+            --             completion = {
+            --                 privateEditable = true,
+            --                 completionItem = {
+            --                     preselectSupport = true,
+            --                     snippetSupport = true,
+            --                 }
+            --             },
+            --             hover = {
+            --                 actions = {
+            --                     enable = true,
+            --                     references = true,
+            --                 }
+            --             },
+            --             imports = {
+            --                 granularity = {
+            --                     enforce = true,
+            --                 },
+            --                 group = true,
+            --                 prefix = "self",
+            --             },
+            --             inlayHints = {
+            --                 closureCaptureHints       = true,
+            --                 closureReturnTypeHints    = true,
+            --                 lifetimeElisionHints      = true,
+            --                 discriminantHints         = true,
+            --                 expressionAdjustmentHints = { enable = true, mode = "postfix" },
+            --                 closingBraceHints         = { enable = true, minLines = 1 },
+            --             },
+            --             highlightRelated = { enable = true },
+            --             magicCompletions = { enable = true },
+            --             procMacro = {
+            --                 enable = true
+            --             } }
+            --     }
+            -- })
             lsp.awk_ls.setup({})
             lsp.bashls.setup({})
             lsp.clangd.setup({})
@@ -169,5 +169,47 @@ return {
                 end,
             })
         end,
+    },
+
+    {
+        'simrat39/rust-tools.nvim',
+        ft = "rust",
+        config = function()
+            local rust = require("rust-tools")
+
+            rust.setup(
+                {
+                    tools = {
+                        inlay_hints = {
+                            only_current_line = true,
+                            parameter_hints_prefix = "",
+                            other_hints_prefix = "< "
+                        },
+                        hover_actions = {
+                            border = {
+                                { "┏", "FloatBorder" },
+                                { "━", "FloatBorder" },
+                                { "┓", "FloatBorder" },
+                                { "┃", "FloatBorder" },
+                                { "┛", "FloatBorder" },
+                                { "━", "FloatBorder" },
+                                { "┗", "FloatBorder" },
+                                { "┃", "FloatBorder" },
+                            },
+                            auto_focus = true
+                        }
+                    },
+                    server = {
+                        on_attach = function(_, bufnr)
+                            vim.keymap.set('n', '<LEADER>k', rust.hover_actions.hover_actions, { buffer = bufnr })
+                            vim.keymap.set('n', '<LEADER>a', rust.code_action_group.code_action_group, { buffer = bufnr })
+                            vim.keymap.set('n', '<LEADER>m', rust.expand_macro.expand_macro, { buffer = bufnr })
+                            vim.keymap.set('n', '<LEADER>c', rust.open_cargo_toml.open_cargo_toml, { buffer = bufnr })
+                            vim.keymap.set('n', '<LEADER>P', rust.parent_module.parent_module, { buffer = bufnr })
+                        end
+                    }
+                }
+            )
+        end
     },
 }
