@@ -200,6 +200,25 @@ return {
                         }
                     },
                     server = {
+                        settings = {
+                            ['rust-analyzer'] = {
+                                completion = {
+                                    callable = { snippets = "add_parentheses" }
+                                },
+                                hover = {
+                                    actions = {
+                                        references = { enable = true },
+                                    }
+                                },
+                                imports = {
+                                    granularity = { enforce = true }
+                                },
+                                inlay_hints = {
+                                    closureReturnTypeHints = { enable = 'with_block' },
+                                    lifetimeElisionHints = { enable = 'skip_trivial' },
+                                }
+                            }
+                        },
                         on_attach = function(_, bufnr)
                             vim.keymap.set('n', '<LEADER>k', rust.hover_actions.hover_actions, { buffer = bufnr })
                             vim.keymap.set('n', '<LEADER>a', rust.code_action_group.code_action_group, { buffer = bufnr })
