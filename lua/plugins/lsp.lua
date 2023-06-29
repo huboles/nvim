@@ -78,44 +78,6 @@ return {
         config = function()
             -- servers to setup
             local lsp = require("lspconfig")
-            -- lsp.rust_analyzer.setup({
-            --     settings = {
-            --         ['rust-analyzer'] = {
-            --             completion = {
-            --                 privateEditable = true,
-            --                 completionItem = {
-            --                     preselectSupport = true,
-            --                     snippetSupport = true,
-            --                 }
-            --             },
-            --             hover = {
-            --                 actions = {
-            --                     enable = true,
-            --                     references = true,
-            --                 }
-            --             },
-            --             imports = {
-            --                 granularity = {
-            --                     enforce = true,
-            --                 },
-            --                 group = true,
-            --                 prefix = "self",
-            --             },
-            --             inlayHints = {
-            --                 closureCaptureHints       = true,
-            --                 closureReturnTypeHints    = true,
-            --                 lifetimeElisionHints      = true,
-            --                 discriminantHints         = true,
-            --                 expressionAdjustmentHints = { enable = true, mode = "postfix" },
-            --                 closingBraceHints         = { enable = true, minLines = 1 },
-            --             },
-            --             highlightRelated = { enable = true },
-            --             magicCompletions = { enable = true },
-            --             procMacro = {
-            --                 enable = true
-            --             } }
-            --     }
-            -- })
             lsp.awk_ls.setup({})
             lsp.bashls.setup({})
             lsp.clangd.setup({})

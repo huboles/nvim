@@ -40,14 +40,12 @@ return {
                             ["if"] = "@function.inner",
                             ["ac"] = "@comment.outer",
                             ["ic"] = "@comment.inner",
-                            ["aC"] = "@class.outer",
-                            ["iC"] = "@class.inner",
+                            ["aC"] = "@conditional.outer",
+                            ["iC"] = "@conditional.inner",
                             ["al"] = "@loop.outer",
                             ["il"] = "@loop.inner",
-                            ["an"] = "@number.outer",
-                            ["in"] = "@number.inner",
-                            ["av"] = "@parameter.outer",
-                            ["iv"] = "@parameter.inner",
+                            ["ab"] = "@block.outer",
+                            ["ib"] = "@block.inner",
                         }
                     }
                 }
