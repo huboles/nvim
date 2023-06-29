@@ -23,7 +23,6 @@ vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set('n', '<LEADER>c', ':r!')
 vim.keymap.set('n', '<LEADER>h', ":vsplit ")
 vim.keymap.set('n', '<LEADER>v', ":split ")
-vim.keymap.set('n', '<LEADER>t', ':tabnew ')
 vim.keymap.set('n', '<LEADER>-', ':set filetype=')
 vim.keymap.set('n', '<LEADER>_', '<CMD>setlocal spell spelllang=en_us<CR>')
 
