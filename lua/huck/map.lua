@@ -23,8 +23,7 @@ vim.keymap.set('n', '<LEADER>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set('n', '<LEADER>c', ':r!')
 vim.keymap.set('n', '<LEADER>h', ":vsplit ")
 vim.keymap.set('n', '<LEADER>v', ":split ")
-vim.keymap.set('n', '<LEADER>-', ':set filetype=')
-vim.keymap.set('n', '<LEADER>_', '<CMD>setlocal spell spelllang=en_us<CR>')
+vim.keymap.set('n', '<LEADER>-', '<CMD>setlocal spell spelllang=en_us<CR>')
 
 -- better line editing
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -42,6 +41,10 @@ vim.keymap.set('n', '<LEADER>Q', '<CMD>so<CR>')
 -- better terminal movement keys
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
+
+-- quickfix navigation
+vim.keymap.set('n', '<C-n>', '<CMD>cnext<CR>')
+vim.keymap.set('n', '<C-p>', '<CMD>cprev<CR>')
 
 -- lsp diagnostics
 vim.keymap.set('n', '<LEADER>n', vim.diagnostic.goto_next)
