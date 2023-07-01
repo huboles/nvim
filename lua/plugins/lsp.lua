@@ -1,3 +1,37 @@
+local border = {
+    { "┏", "FloatBorder" },
+    { "━", "FloatBorder" },
+    { "┓", "FloatBorder" },
+    { "┃", "FloatBorder" },
+    { "┛", "FloatBorder" },
+    { "━", "FloatBorder" },
+    { "┗", "FloatBorder" },
+    { "┃", "FloatBorder" },
+}
+
+local keybinds = function()
+    vim.keymap.set('n', '<LEADER>n', vim.diagnostic.goto_next)
+    vim.keymap.set('n', '<LEADER>p', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', '<LEADER>r', vim.lsp.buf.rename)
+    vim.keymap.set('n', '<LEADER>a', vim.lsp.buf.code_action)
+    vim.keymap.set('n', '<LEADER>k', vim.lsp.buf.hover)
+    vim.keymap.set('n', '<LEADER>K', vim.diagnostic.open_float)
+    vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition)
+
+    -- toggle lsp diagnostics
+    vim.keymap.set('n', '<LEADER>d',
+        function()
+            if vim.g.visible_diagnostics then
+                vim.diagnostic.disable()
+                vim.g.visible_diagnostics = false
+            else
+                vim.diagnostic.enable()
+                vim.g.visible_diagnostics = true
+            end
+        end
+    )
+end
+
 return {
     {
         "jose-elias-alvarez/null-ls.nvim",
@@ -78,13 +112,14 @@ return {
         config = function()
             -- servers to setup
             local lsp = require("lspconfig")
-            lsp.awk_ls.setup({})
-            lsp.bashls.setup({})
-            lsp.clangd.setup({})
-            lsp.cssls.setup({})
-            lsp.html.setup({})
-            lsp.lua_ls.setup({})
-            lsp.solargraph.setup({})
+
+            lsp.awk_ls.setup({ on_attach = keybinds })
+            lsp.bashls.setup({ on_attach = keybinds })
+            lsp.clangd.setup({ on_attach = keybinds })
+            lsp.cssls.setup({ on_attach = keybinds })
+            lsp.html.setup({ on_attach = keybinds })
+            lsp.lua_ls.setup({ on_attach = keybinds })
+            lsp.solargraph.setup({ on_attach = keybinds })
 
             -- diagnostic settings
             vim.lsp.diagnostics = {
@@ -103,18 +138,6 @@ return {
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
             end
-
-            -- borders on windows
-            local border = {
-                { "┏", "FloatBorder" },
-                { "━", "FloatBorder" },
-                { "┓", "FloatBorder" },
-                { "┃", "FloatBorder" },
-                { "┛", "FloatBorder" },
-                { "━", "FloatBorder" },
-                { "┗", "FloatBorder" },
-                { "┃", "FloatBorder" },
-            }
 
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -148,16 +171,7 @@ return {
                             other_hints_prefix = "-> "
                         },
                         hover_actions = {
-                            border = {
-                                { "┏", "FloatBorder" },
-                                { "━", "FloatBorder" },
-                                { "┓", "FloatBorder" },
-                                { "┃", "FloatBorder" },
-                                { "┛", "FloatBorder" },
-                                { "━", "FloatBorder" },
-                                { "┗", "FloatBorder" },
-                                { "┃", "FloatBorder" },
-                            },
+                            border = border,
                             auto_focus = true
                         }
                     },
@@ -182,6 +196,7 @@ return {
                             }
                         },
                         on_attach = function(_, bufnr)
+                            keybinds()
                             vim.keymap.set('n', '<LEADER>k', rust.hover_actions.hover_actions, { buffer = bufnr })
                             vim.keymap.set('n', '<LEADER>a', rust.code_action_group.code_action_group, { buffer = bufnr })
                             vim.keymap.set('n', '<LEADER>m', rust.expand_macro.expand_macro, { buffer = bufnr })

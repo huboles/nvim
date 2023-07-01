@@ -14,8 +14,6 @@ return {
             { '<C-_>',       '<CMD>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<CR>' },
             { '<C-r>',       '<CMD>Telescope command_history<CR>' },
             { '<LEADER>b',   '<CMD>Telescope buffers<CR>' },
-            { '<LEADER>l',   '<CMD>Telescope diagnostics<CR>' },
-            { '<LEADER>R',   '<CMD>Telescope lsp_references<CR>' },
             { '<LEADER>tt',  '<CMD>Telescope resume<CR>' },
             { '<LEADER>tc',  '<CMD>Telescope commands<CR>' },
             { '<LEADER>th',  '<CMD>Telescope help_tags<CR>' },
@@ -30,11 +28,13 @@ return {
             { '<LEADER>tgb', '<CMD>Telescope git_branches<CR>' },
             { '<LEADER>tgs', '<CMD>Telescope git_status<CR>' },
             { '<LEADER>tft', '<CMD>Telescope filetypes<CR>' },
-            { '<LEADER>tld', '<CMD>Telescope lsp_type_definitions<CR>' },
-            { '<LEADER>tlt', '<CMD>Telescope lsp_definitions<CR>' },
-            { '<LEADER>tli', '<CMD>Telescope lsp_implementations<CR>' },
-            { '<LEADER>tls', '<CMD>Telescope lsp_document_symbols<CR>' },
-            { '<LEADER>tlS', '<CMD>Telescope lsp_workspace_symbols<CR>' },
+            { '<LEADER>ll',  '<CMD>Telescope diagnostics<CR>' },
+            { '<LEADER>lr',  '<CMD>Telescope lsp_references<CR>' },
+            { '<LEADER>lt',  '<CMD>Telescope lsp_type_definitions<CR>' },
+            { '<LEADER>ld',  '<CMD>Telescope lsp_definitions<CR>' },
+            { '<LEADER>li',  '<CMD>Telescope lsp_implementations<CR>' },
+            { '<LEADER>ls',  '<CMD>Telescope lsp_document_symbols<CR>' },
+            { '<LEADER>lS',  '<CMD>Telescope lsp_workspace_symbols<CR>' },
         },
         config = function()
             local actions = require('telescope.actions')
@@ -71,6 +71,55 @@ return {
             }
 
             require('telescope').load_extension('fzf')
+
+
+            -- live grep in git repo, or fall back to current directory
+            vim.keymap.set('n', '<LEADER>F',
+                function()
+                    local function is_git_repo()
+                        vim.fn.system("git rev-parse --is-inside-work-tree")
+
+                        return vim.v.shell_error == 0
+                    end
+
+                    local function get_git_root()
+                        local dot_git_path = vim.fn.finddir(".git", ".;")
+                        return vim.fn.fnamemodify(dot_git_path, ":h")
+                    end
+
+                    local opts = {}
+
+                    if is_git_repo() then
+                        opts = {
+                            cwd = get_git_root(),
+                        }
+                    end
+
+                    require("telescope.builtin").live_grep(opts)
+                end
+            )
+
+            -- fuzzy search over git files, or fall back to all files
+            vim.keymap.set('n', '<LEADER>f',
+                function()
+                    local function is_git_repo()
+                        vim.fn.system("git rev-parse --is-inside-work-tree")
+                        return vim.v.shell_error == 0
+                    end
+                    local function get_git_root()
+                        local dot_git_path = vim.fn.finddir(".git", ".;")
+                        return vim.fn.fnamemodify(dot_git_path, ":h")
+                    end
+                    local opts = {}
+                    if is_git_repo() then
+                        opts = {
+                            cwd = get_git_root(),
+                        }
+                    end
+                    require("telescope.builtin").find_files(opts)
+                end
+            )
+
 
             -- give telescope window if opened with no command
             vim.api.nvim_create_autocmd('VimEnter', {
