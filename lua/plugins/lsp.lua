@@ -47,7 +47,7 @@ return {
                     end
 
                     require("mason-null-ls").setup({
-                        automatic_installation = true,
+                        automatic_installation = false,
                         handlers = {
                             function()
                             end,
@@ -113,7 +113,6 @@ return {
             -- servers to setup
             local lsp = require("lspconfig")
 
-            lsp.awk_ls.setup({ on_attach = keybinds })
             lsp.bashls.setup({ on_attach = keybinds })
             lsp.clangd.setup({ on_attach = keybinds })
             lsp.cssls.setup({ on_attach = keybinds })
@@ -133,7 +132,7 @@ return {
             vim.highlight.priorities.semantic_tokens = 95
 
             -- custom signs
-            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "  " }
+            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "* " }
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -158,7 +157,7 @@ return {
 
     {
         'simrat39/rust-tools.nvim',
-        ft = "rust",
+        event = { "BufReadPost *.rs" },
         config = function()
             local rust = require("rust-tools")
 
@@ -176,6 +175,7 @@ return {
                         }
                     },
                     server = {
+                        standalone = false,
                         settings = {
                             ['rust-analyzer'] = {
                                 completion = {
@@ -206,6 +206,14 @@ return {
                     }
                 }
             )
+
+            -- auto format code on save
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = { "*" },
+                callback = function()
+                    vim.lsp.buf.format()
+                end,
+            })
         end
     },
 }
