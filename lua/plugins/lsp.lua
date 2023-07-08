@@ -93,7 +93,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 automatic_installation = true,
-                ensure_installed = { "rust_analyzer", "clangd", "lua_ls" },
+                ensure_installed = { "clangd", "lua_ls", "solargraph" },
             })
         end,
     },
@@ -160,7 +160,6 @@ return {
         event = { "BufReadPost *.rs" },
         config = function()
             local rust = require("rust-tools")
-
             rust.setup(
                 {
                     tools = {
