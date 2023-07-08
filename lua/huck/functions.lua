@@ -9,14 +9,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 
--- set filetype for .meta files
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = { "*.meta" },
-    callback = function()
-        vim.cmd.setfiletype("markdown")
-    end,
-})
-
 -- set text width
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = { "*.md", "*.txt" },
@@ -30,7 +22,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = { "*" },
     callback = function()
         local ext = vim.fn.expand("%:e")
-        local filename = vim.fn.expand("%:t")
         local dir = "/home/huck/repos/templates/"
 
         local copy = function(name)
@@ -42,8 +33,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
         if ext ~= "" then
             copy("template.")
-        elseif filename == "Makefile" or filename == "LICENSE" then
-            copy(filename)
         end
     end,
 })
