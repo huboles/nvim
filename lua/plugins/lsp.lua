@@ -34,50 +34,6 @@ end
 
 return {
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        dependencies = {
-            "plenary.nvim",
-            "nvim-treesitter",
-            {
-                "jay-babu/mason-null-ls.nvim",
-                dependencies = { "mason.nvim" },
-                config = function()
-                    local mason_null = function(source_name, methods)
-                        require("mason-null-ls").default_setup(source_name, methods)
-                    end
-
-                    require("mason-null-ls").setup({
-                        automatic_installation = false,
-                        handlers = {
-                            function()
-                            end,
-                            shellcheck = mason_null,
-                            shellharden = mason_null,
-                        },
-                    })
-                end,
-            },
-        },
-        config = function()
-            local null_ls = require("null-ls")
-            local diagnostics = null_ls.builtins.diagnostics
-            local formatting = null_ls.builtins.formatting
-            local hover = null_ls.builtins.hover
-
-            require("null-ls").setup({
-                sources = {
-                    diagnostics.todo_comments,
-                    diagnostics.trail_space,
-                    formatting.trim_whitespace,
-                    formatting.trim_newlines,
-                    hover.dictionary,
-                    hover.printenv,
-                },
-            })
-        end,
-    },
-
-    {
         "williamboman/mason-lspconfig",
         dependencies = {
             "nvim-treesitter",
@@ -106,7 +62,6 @@ return {
             "mason-lspconfig",
             "nvim-cmp",
             "nvim-treesitter",
-            "null-ls.nvim",
             "Maan2003/lsp_lines.nvim",
         },
         config = function()
