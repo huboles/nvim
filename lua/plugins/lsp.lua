@@ -48,7 +48,7 @@ return {
         version = "1.3.0",
         config = function()
             require("mason-lspconfig").setup({
-                automatic_installation = true,
+                automatic_installation = false,
                 ensure_installed = { "clangd", "lua_ls", "solargraph" },
             })
         end,
