@@ -125,7 +125,9 @@ return {
                         },
                         hover_actions = {
                             border = border,
-                            auto_focus = true
+                            auto_focus = true,
+                            max_width = nil,
+                            max_height = nil,
                         }
                     },
                     server = {
