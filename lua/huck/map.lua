@@ -25,6 +25,7 @@ vim.keymap.set('n', '<LEADER>c', ':r!')
 vim.keymap.set('n', '<LEADER>h', ":vsplit ")
 vim.keymap.set('n', '<LEADER>v', ":split ")
 vim.keymap.set('n', '<LEADER>-', '<CMD>setlocal spell spelllang=en_us<CR>')
+vim.keymap.set('n', '<LEADER>w', '<CMD>set textwidth=80<CR>ggVGgq')
 
 -- better line editing
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
