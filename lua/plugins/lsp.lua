@@ -74,6 +74,7 @@ return {
             lsp.html.setup({ on_attach = keybinds })
             lsp.lua_ls.setup({ on_attach = keybinds })
             lsp.solargraph.setup({ on_attach = keybinds })
+            lsp.julials.setup({ on_attach = keybinds })
 
             -- diagnostic settings
             vim.lsp.diagnostics = {
@@ -171,5 +172,9 @@ return {
                 end,
             })
         end
+    },
+    {
+        'JuliaEditorSupport/julia-vim',
+        event = { "BufReadPost *.jl" }
     },
 }
