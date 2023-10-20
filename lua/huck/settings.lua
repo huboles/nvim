@@ -32,7 +32,7 @@ vim.o.history = 10000
 vim.o.showmatch = true
 
 vim.o.autochdir = true
-vim.o.browsedir = 'buffer'
+-- vim.o.browsedir = 'buffer'
 vim.o.cdhome = true
 
 vim.o.wrapscan = true
