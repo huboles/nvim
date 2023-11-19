@@ -174,6 +174,7 @@ return {
             })
         end
     },
+
     {
         'JuliaEditorSupport/julia-vim',
         event = { "BufReadPost *.jl" }
