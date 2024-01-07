@@ -35,6 +35,14 @@ return {
             { '<LEADER>li',  '<CMD>Telescope lsp_implementations<CR>' },
             { '<LEADER>ls',  '<CMD>Telescope lsp_document_symbols<CR>' },
             { '<LEADER>lS',  '<CMD>Telescope lsp_workspace_symbols<CR>' },
+            { '<LEADER>tw', function()
+                local word = vim.fn.expand("<cword>")
+                require('telescope.builtin').grep_string({ search = word })
+            end },
+            { '<LEADER>tW', function()
+                local word = vim.fn.expand("<cWORD>")
+                require('telescope.builtin').grep_string({ search = word })
+            end },
         },
         config = function()
             local actions = require('telescope.actions')
@@ -71,7 +79,6 @@ return {
             }
 
             require('telescope').load_extension('fzf')
-
 
             -- live grep in git repo, or fall back to current directory
             vim.keymap.set('n', '<LEADER>F',
@@ -119,7 +126,6 @@ return {
                     require("telescope.builtin").find_files(opts)
                 end
             )
-
 
             -- give telescope window if opened with no command
             vim.api.nvim_create_autocmd('VimEnter', {

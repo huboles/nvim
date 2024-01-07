@@ -17,8 +17,8 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins", {
     defaults = { lazy = true },
-    checker = { enabled = true },
-    change_detection = { notify = false, },
+    checker = { enabled = true, notify = false },
+    change_detection = { enabled = true, notify = false, },
     performance = {
         rtp = {
             disabled_plugins = {

@@ -72,11 +72,18 @@ return {
             lsp.clangd.setup({ on_attach = keybinds })
             lsp.cssls.setup({ on_attach = keybinds })
             lsp.html.setup({ on_attach = keybinds })
-            lsp.lua_ls.setup({ on_attach = keybinds })
             lsp.solargraph.setup({ on_attach = keybinds })
             lsp.julials.setup({ on_attach = keybinds })
             lsp.texlab.setup({ on_attach = keybinds })
             lsp.gopls.setup({ on_attach = keybinds })
+            lsp.lua_ls.setup({
+                on_attach = keybinds,
+                settings = {
+                    Lua = {
+                        diagnostics = { globals = "vim" }
+                    }
+                }
+            })
 
             -- diagnostic settings
             vim.lsp.diagnostics = {
