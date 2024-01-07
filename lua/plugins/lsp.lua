@@ -76,6 +76,7 @@ return {
             lsp.solargraph.setup({ on_attach = keybinds })
             lsp.julials.setup({ on_attach = keybinds })
             lsp.texlab.setup({ on_attach = keybinds })
+            lsp.gopls.setup({ on_attach = keybinds })
 
             -- diagnostic settings
             vim.lsp.diagnostics = {
