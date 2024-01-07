@@ -5,9 +5,6 @@ return {
     {
         'j-hui/fidget.nvim',
         lazy = false,
-        opts = {
-            suppress_on_insert = true,
-        },
     },
 
     {
