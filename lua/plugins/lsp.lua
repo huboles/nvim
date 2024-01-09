@@ -69,8 +69,15 @@ return {
 			local lsp = require("lspconfig")
 
             lsp.julials.setup({ on_attach = keybinds })
-            lsp.lua_ls.setup({ on_attach = keybinds })
             lsp.texlab.setup({ on_attach = keybinds })
+            lsp.lua_ls.setup({
+                on_attach = keybinds,
+                settings = {
+                    Lua = {
+                        diagnostics = { globals = "vim" }
+                    }
+                }
+            })
 
 			-- diagnostic settings
 			vim.lsp.diagnostics = {
@@ -111,4 +118,5 @@ return {
         'JuliaEditorSupport/julia-vim',
         event = { "BufReadPost *.jl" },
     },
+
 }
