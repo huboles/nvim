@@ -59,9 +59,12 @@ return {
                 sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } })
             })
 
+            local lsp = require('lspconfig')
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            require('lspconfig')['rust_analyzer'].setup { capabilities = capabilities }
-            require('lspconfig')['texlab'].setup { capabilities = capabilities }
+
+            lsp.texlab.setup { capabilities = capabilities }
+            lsp.lua_ls.setup { capabilities = capabilities }
+            lsp.julials.setup { capabilities = capabilities }
         end
     },
 }

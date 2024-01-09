@@ -68,6 +68,10 @@ return {
 			-- servers to setup
 			local lsp = require("lspconfig")
 
+            lsp.julials.setup({ on_attach = keybinds })
+            lsp.lua_ls.setup({ on_attach = keybinds })
+            lsp.texlab.setup({ on_attach = keybinds })
+
 			-- diagnostic settings
 			vim.lsp.diagnostics = {
 				signs = true,
