@@ -168,6 +168,7 @@ highlight("Boolean", magenta, black, c_magenta, c_black, bold, nil)
 highlight("Function", dark_blue, black, c_dark_blue, c_black, bold, nil)
 highlight("Identifier", blue, black, c_blue, c_black, nil, nil)
 highlight("@variable", blue, black, c_blue, c_black, nil, nil)
+highlight("@module", blue, black, c_blue, c_black, bold, nil)
 
 highlight("Conditional", dark_green, black, c_dark_green, c_black, "italic,bold", nil)
 highlight("Repeat", dark_green, black, c_dark_green, c_black, "italic,bold", nil)
