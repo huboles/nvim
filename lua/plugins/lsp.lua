@@ -103,11 +103,11 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
             end
 
-            local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+            local floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}
                 opts.border = opts.border or border
-                return orig_util_open_floating_preview(contents, syntax, opts, ...)
+                return floating_preview(contents, syntax, opts, ...)
             end
 
             -- auto format code on save
