@@ -164,7 +164,7 @@ highlight("@variable.builtin", blue, black, nil, nil)
 highlight("@module", blue, black, bold, nil)
 highlight("@module.builtin", blue, black, bold, nil)
 highlight("@type.builtin", blue, black, bold, nil)
-highlight("@function.builtin", dark_blue, black, bold, nil)
+highlight("@function.macro", dark_yellow, black, bold, nil)
 
 highlight("Conditional", dark_green, black, "italic,bold", nil)
 highlight("Repeat", dark_green, black, "italic,bold", nil)
