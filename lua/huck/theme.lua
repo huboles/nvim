@@ -96,6 +96,7 @@ highlight("WinBar", nil, black, nil, nil)
 highlight("WinBarNC", nil, black, nil, nil)
 highlight("QuickFixLine", cyan, nil, nil, nil)
 highlight("MsgArea", nil, black, nil, nil)
+highlight("WinSeparator", dark_grey, black, nil, nil)
 
 -- floating windows
 highlight("NormalFloat", white, black, nil, nil)
