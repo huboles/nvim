@@ -40,7 +40,9 @@ vim.keymap.set('n', 'K', 'Jx')
 -- quick config editing
 vim.keymap.set('n', '<LEADER>=', '<CMD>tabnew ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<LEADER>q', '<CMD>Lazy<CR>')
-vim.keymap.set('n', '<LEADER>Q', '<CMD>source %<CR>')
+vim.keymap.set('n', '<LEADER>Q', '<CMD>Mason<CR>')
+vim.keymap.set('n', '<LEADER>%', '<CMD>so %<CR>')
+vim.keymap.set('n', '<LEADER>?', '<CMD>TSHighlightCapturesUnderCursor<CR>')
 
 -- better terminal movement keys
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]])

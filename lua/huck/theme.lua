@@ -105,7 +105,7 @@ highlight("FloatShadowThrough", nil, dark_grey, nil, nil)
 
 -- spelling
 highlight("SpellBad", red, black, underline, red)
-highlight("SpellCap", cyan, black, underline, cyan)
+highlight("SpellCap", blue, black, underline, blue)
 highlight("SpellRare", green, black, underline, green)
 highlight("SpellLocal", magenta, black, underline, magenta)
 
@@ -159,21 +159,13 @@ highlight("Boolean", magenta, black, bold, nil)
 highlight("Function", dark_blue, black, bold, nil)
 highlight("Identifier", blue, black, nil, nil)
 
-highlight("@character.special", white, black, bold, nil)
-highlight("@variable", blue, black, nil, nil)
-highlight("@variable.builtin", blue, black, nil, nil)
-highlight("@module", blue, black, bold, nil)
-highlight("@module.builtin", blue, black, bold, nil)
-highlight("@type.builtin", blue, black, bold, nil)
-highlight("@function.macro", dark_yellow, black, bold, nil)
-
 highlight("Conditional", dark_green, black, "italic,bold", nil)
 highlight("Repeat", dark_green, black, "italic,bold", nil)
 
 highlight("Label", dark_green, black, nil, nil)
 highlight("Statement", dark_green, black, nil, nil)
-highlight("Operator", dark_green, black, bold, nil)
-highlight("Keyword", dark_green, black, bold, nil)
+highlight("Operator", dark_green, black, "bold", nil)
+highlight("Keyword", dark_green, black, "bold", nil)
 
 highlight("PreProc", yellow, black, bold, nil)
 highlight("Include", yellow, black, bold, nil)
@@ -191,6 +183,108 @@ highlight("SpecialChar", dark_yellow, black, nil, nil)
 highlight("Delimiter", dark_yellow, black, nil, nil)
 highlight("SpecialComment", yellow, black, italic, nil)
 highlight("Debug", dark_yellow, black, nil, nil)
+
+-- tree sitter
+highlight("@variable", blue, black, nil, nil)
+highlight("@variable.builtin", blue, black, bold, nil)
+highlight("@variable.parameter", blue, black, nil, nil)
+highlight("@variable.member", blue, black, nil, nil)
+
+highlight("@constant", white, black, "bold", nil)
+highlight("@constant.builtin", dark_yellow, black, "bold", nil)
+highlight("@constant.macro", yellow, black, "bold,italic", nil)
+
+highlight("@module", blue, black, nil, nil)
+highlight("@module.builtin", blue, black, "bold", nil)
+
+highlight("@label", green, black, "bold", nil)
+
+highlight("@string", white, black, "italic", nil)
+highlight("@string.documentation", light_grey, black, "italic", nil)
+highlight("@string.regexp", yellow, black, nil, nil)
+highlight("@string.escape", yellow, black, nil, nil)
+highlight("@string.special", cyan, black, nil, nil)
+highlight("@string.special.symbol", blue, black, "bold", nil)
+highlight("@string.special.path", dark_blue, black, "underline", nil)
+highlight("@string.special.url", blue, black, "underline", nil)
+
+highlight("@character", white, black, "bold", nil)
+highlight("@character.special", dark_green, black, "bold", nil)
+
+highlight("@boolean", magenta, black, "bold", nil)
+
+highlight("@number", white, black, "bold", nil)
+highlight("@number.float", white, black, "bold", nil)
+
+highlight("@type", blue, black, "bold", nil)
+highlight("@type.builtin", blue, black, "bold", nil)
+highlight("@type.definition", blue, black, "bold", nil)
+highlight("@type.qualifier", green, black, "bold", nil)
+
+highlight("@attribute", dark_yellow, black, "bold", nil)
+
+highlight("@property", cyan, black, nil, nil)
+
+highlight("@function", dark_blue, black, "bold", nil)
+highlight("@function.builtin", dark_green, black, "bold", nil)
+highlight("@function.call", dark_blue, black, "bold", nil)
+highlight("@function.macro", dark_yellow, black, "bold", nil)
+highlight("@function.method", dark_blue, black, "bold", nil)
+highlight("@function.method.call", dark_blue, black, "bold", nil)
+
+highlight("@constructor", dark_yellow, black, "bold", nil)
+
+highlight("@operator", dark_green, black, "bold", nil)
+
+highlight("@keyword", dark_green, black, "bold", nil)
+highlight("@keyword.coroutine", dark_green, black, "bold", nil)
+highlight("@keyword.function", dark_green, black, "bold", nil)
+highlight("@keyword.operator", dark_green, black, "bold", nil)
+highlight("@keyword.import", dark_green, black, "bold", nil)
+highlight("@keyword.storage", dark_green, black, "bold", nil)
+highlight("@keyword.repeat", dark_green, black, "bold", nil)
+highlight("@keyword.return", dark_green, black, "bold", nil)
+highlight("@keyword.debug", yellow, black, "bold", nil)
+highlight("@keyword.exception", dark_green, black, "bold", nil)
+highlight("@keyword.conditional", dark_green, black, "bold", nil)
+highlight("@keyword.conditional.ternary", dark_green, black, "bold", nil)
+highlight("@keyword.directive", yellow, black, "bold", nil)
+highlight("@keyword.directive.define", yellow, black, "bold", nil)
+
+highlight("@punctuation.delimiter", dark_yellow, black, nil, nil)
+highlight("@punctuation.bracket", dark_yellow, black, nil, nil)
+highlight("@punctuation.special", dark_yellow, black, nil, nil)
+
+highlight("@comment", grey, black, nil, nil)
+highlight("@comment.documentation", light_grey, black, nil, nil)
+highlight("@comment.error", red, black, "bold", nil)
+highlight("@comment.warning", yellow, black, "bold", nil)
+highlight("@comment.todo", dark_yellow, black, "bold", nil)
+highlight("@comment.note", dark_cyan, black, "bold", nil)
+
+highlight("@markup.strong", nil, nil, "bold", nil)
+highlight("@markup.italic", nil, nil, "italic", nil)
+highlight("@markup.strikethrough", nil, nil, "strikethrough", nil)
+highlight("@markup.underline", nil, nil, "underline", nil)
+highlight("@markup.heading", dark_green, black, "bold", nil)
+highlight("@markup.quote", light_grey, black, "italic", nil)
+highlight("@markup.math", white, black, nil, nil)
+highlight("@markup.link", blue, black, nil, nil)
+highlight("@markup.link.label", blue, black, nil, nil)
+highlight("@markup.link.url", blue, black, "underline", nil)
+highlight("@markup.raw", light_grey, black, nil, nil)
+highlight("@markup.raw.block", light_grey, black, nil, nil)
+highlight("@markup.list", yellow, black, "bold", nil)
+highlight("@markup.list.checked", grey, black, "bold", nil)
+highlight("@markup.list.unchecked", yellow, black, "bold", nil)
+
+highlight("@diff.plus", black, green, nil, nil)
+highlight("@diff.minus", black, red, nil, nil)
+highlight("@diff.delta", black, magenta, nil, nil)
+
+highlight("@tag", blue, black, nil, nil)
+highlight("@tag.attribute", white, black, nil, nil)
+highlight("@tag.delimiter", yellow, black, nil, nil)
 
 -- diff
 highlight("Added", black, green, nil, nil)
