@@ -4,11 +4,6 @@ return {
         lazy = false,
         dependencies = {
             'nvim-lua/plenary.nvim',
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                build = {
-                    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-            },
         },
         keys = {
             { '<C-_>',       '<CMD>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<CR>' },
@@ -68,17 +63,7 @@ return {
                     },
                 },
                 pickers = {},
-                extensions = {
-                    fzf = {
-                        fuzzy = true,
-                        override_generic_sorter = true,
-                        override_file_sorter = true,
-                        case_mode = 'smart_case',
-                    }
-                },
             }
-
-            require('telescope').load_extension('fzf')
 
             -- live grep in git repo, or fall back to current directory
             vim.keymap.set('n', '<LEADER>F',

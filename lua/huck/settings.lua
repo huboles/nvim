@@ -52,11 +52,8 @@ vim.o.showcmd = true
 vim.o.cmdheight = 1
 vim.o.cmdwinheight = 10
 
-vim.o.backupdir = '/home/huck/.local/state/nvim/backup'
-vim.o.undodir = '/home/huck/.local/state/nvim/undo'
-
-vim.o.backup = true
-vim.o.undofile = true
+vim.o.backup = false
+vim.o.undofile = false
 vim.o.swapfile = false
 vim.o.undolevels = 2000
 vim.o.undoreload = 2000
