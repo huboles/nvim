@@ -68,10 +68,7 @@ return {
             -- servers to setup
             local lsp = require("lspconfig")
 
-            lsp.bashls.setup({ on_attach = keybinds })
             lsp.clangd.setup({ on_attach = keybinds })
-            lsp.cssls.setup({ on_attach = keybinds })
-            lsp.html.setup({ on_attach = keybinds })
             lsp.solargraph.setup({ on_attach = keybinds })
             lsp.julials.setup({ on_attach = keybinds })
             lsp.texlab.setup({ on_attach = keybinds })
