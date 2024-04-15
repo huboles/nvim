@@ -13,6 +13,8 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python3_provider = 0
 
+vim.g.have_nerd_font = true
+
 vim.o.mouse = 'a'
 vim.o.mousefocus = true
 vim.o.mousemodel = 'extend'
