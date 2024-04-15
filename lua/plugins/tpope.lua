@@ -1,8 +1,7 @@
 return {
-    { 'tpope/vim-repeat',     event = "VeryLazy" },
-    { 'tpope/vim-surround',   event = "VeryLazy" },
-    { 'tpope/vim-endwise',    event = "VeryLazy" },
-    { 'tpope/vim-commentary', event = "VeryLazy" },
+    { 'tpope/vim-repeat',   event = "VeryLazy" },
+    { 'tpope/vim-surround', event = "VeryLazy" },
+    { 'tpope/vim-endwise',  event = "VeryLazy" },
     {
         'tpope/vim-fugitive',
         keys = {
