@@ -17,6 +17,14 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 
+-- ledger highlighting
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = { "*.dat" },
+    callback = function()
+        vim.bo.filetype = 'ledger'
+    end,
+})
+
 -- check template folder and if a template.[filetype] exists use it
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = { "*" },
