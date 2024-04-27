@@ -405,3 +405,6 @@ highlight("GitSignsStagedChangedeleteLn", magenta, black, nil, nil)
 highlight("GitSignsDelete", red, black, nil, nil)
 highlight("GitSignsDeletePreview", red, black, nil, nil)
 highlight("GitSignsDeleteVirtLn", red, black, nil, nil)
+
+-- ledger negative balances
+highlight("negative_quantity", red, black, nil, nil)
