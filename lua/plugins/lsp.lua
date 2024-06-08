@@ -82,23 +82,24 @@ return {
                 }
             })
 
-            -- diagnostic settings
-            vim.lsp.diagnostics = {
-                signs = true,
-                underline = true,
-                update_in_insert = false,
-                severity_sort = { reverse = false },
-            }
-
             -- don't override treesitter colors
             vim.highlight.priorities.semantic_tokens = 95
 
-            -- custom signs
-            local signs = { Error = ">>", Warn = "> ", Hint = "- ", Info = "* " }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
+            -- diagnostic settings
+            vim.diagnostic.config({
+                underline = true,
+                update_in_insert = false,
+                severity_sort = { reverse = false },
+                signs = {
+                    enable = true,
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = ">>",
+                        [vim.diagnostic.severity.WARN] = "> ",
+                        [vim.diagnostic.severity.HINT] = "- ",
+                        [vim.diagnostic.severity.INFO] = "* ",
+                    }
+                }
+            })
 
             local floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
